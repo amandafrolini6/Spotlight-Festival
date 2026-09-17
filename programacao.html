@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <!-- A tag viewport garante a responsividade em dispositivos móveis -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Descrição para otimização em motores de busca (SEO) -->
+  <meta name="description" content="Programação e convidados do Spotlight.">
+  <title>Programação | Spotlight</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!--CABEÇALHO (HEADER)-->
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="index.html">
+        <strong>SPOTLIGHT</strong>
+        <span>Festival de Cinema Independente</span>
+      </a>
+      
+      <!-- Botão do Menu Mobile com atributos de acessibilidade -->
+      <button class="menu-toggle" aria-label="Abrir menu" aria-expanded="false">☰</button>
+      
+      <nav class="nav">
+        <a href="index.html">Início</a>
+        <a href="index.html#sobre">Sobre</a>
+        <a class="active" href="programacao.html">Programação</a>
+        <a href="#palestrantes">Palestrantes</a>
+        <a href="ingressos.html">Ingressos</a>
+        <a href="ingressos.html#contato">Contato</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- CONTEÚDO PRINCIPAL (MAIN) -->
+  <main>
+    
+    <!-- Hero da página de Programação -->
+    <section class="page-hero">
+      <div class="container">
+        <span class="eyebrow">11–14 de junho de 2026</span>
+        <h1>PROGRAMAÇÃO</h1>
+        <p>Quatro dias para assistir, conversar e criar ao lado de quem movimenta o cinema independente.</p>
+      </div>
+    </section>
+
+    <!-- Seção da Agenda do Evento -->
+    <section class="section">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">Dia principal · 13 de junho</span>
+          <h2 class="section-title">AGENDA DO EVENTO</h2>
+        </div>
+        <div class="agenda">
+          
+          <!-- Item individual da agenda -->
+          <article class="agenda-item">
+            <!-- A tag <time> é semanticamente correta para exibir horários ou datas -->
+            <time class="agenda-time">10:00</time>
+            <div>
+              <h3>Abertura & Mostra de Curtas</h3>
+              <p>Seleção nacional de novas vozes do audiovisual.</p>
+            </div>
+            <span class="agenda-tag">Sala Lumière</span>
+          </article>
+          
+          <article class="agenda-item">
+            <time class="agenda-time">13:30</time>
+            <div>
+              <h3>Direção Fora do Circuito</h3>
+              <p>Conversa sobre criação autoral, produção e distribuição.</p>
+            </div>
+            <span class="agenda-tag">Auditório</span>
+          </article>
+          
+          <article class="agenda-item">
+            <time class="agenda-time">15:30</time>
+            <div>
+              <h3>Workshop: Do Roteiro à Tela</h3>
+              <p>Processo criativo e soluções práticas para produções independentes.</p>
+            </div>
+            <span class="agenda-tag">Estúdio 2</span>
+          </article>
+          
+          <article class="agenda-item">
+            <time class="agenda-time">18:00</time>
+            <div>
+              <h3>Mostra Competitiva de Longas</h3>
+              <p>Exibição seguida de conversa com os realizadores.</p>
+            </div>
+            <span class="agenda-tag">Sala Principal</span>
+          </article>
+          
+          <article class="agenda-item">
+            <time class="agenda-time">21:00</time>
+            <div>
+              <h3>Cerimônia Spotlight</h3>
+              <p>Premiação das produções escolhidas pelo júri e pelo público.</p>
+            </div>
+            <span class="agenda-tag">Grande Teatro</span>
+          </article>
+          
+        </div>
+      </div>
+    </section>
+
+    <!-- Seção de Palestrantes -->
+    <section class="section speakers" id="palestrantes">
+      <div class="container">
+        <div class="section-heading center">
+          <span class="eyebrow">Encontros e novas perspectivas</span>
+          <h2 class="section-title">PALESTRANTES</h2>
+        </div>
+        <div class="speaker-grid">
+          
+          <article class="speaker-card">
+            <div class="speaker-initial">MR</div>
+            <h3>Marina Reis</h3>
+            <p class="speaker-role">Diretora e roteirista</p>
+            <p>Realizadora premiada por narrativas urbanas e histórias de identidade.</p>
+          </article>
+          
+          <article class="speaker-card">
+            <div class="speaker-initial">LC</div>
+            <h3>Lucas Costa</h3>
+            <p class="speaker-role">Produtor audiovisual</p>
+            <p>Especialista em viabilização e distribuição de projetos independentes.</p>
+          </article>
+          
+          <article class="speaker-card">
+            <div class="speaker-initial">BA</div>
+            <h3>Bianca Alves</h3>
+            <p class="speaker-role">Diretora de fotografia</p>
+            <p>Pesquisa luz, memória e linguagem visual em produções autorais.</p>
+          </article>
+          
+        </div>
+      </div>
+    </section>
+
+    <!-- Chamada para Ação (CTA) -->
+    <section class="cta">
+      <div class="container cta-inner">
+        <div>
+          <h2>VIVA CADA CENA</h2>
+          <p>Escolha seu ingresso e faça parte do festival.</p>
+        </div>
+        <a class="btn btn-outline" href="ingressos.html">Ver ingressos</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- RODAPÉ (FOOTER) -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <a class="brand" href="index.html">
+          <strong>SPOTLIGHT</strong>
+          <span>Festival de Cinema Independente</span>
+        </a>
+        <nav class="footer-links">
+          <a href="#">Política de Privacidade</a>
+          <a href="#">Termos de Uso</a>
+          <a href="ingressos.html#contato">Contato</a>
+        </nav>
+        <div class="socials">
+          <a href="#">◎</a>
+          <a href="#">▶</a>
+          <a href="#">𝕏</a>
+        </div>
+      </div>
+      <p class="copyright">© 2026 Spotlight — Festival de Cinema Independente</p>
+    </div>
+  </footer>
+
+  <!--LÓGICA JAVASCRIPT -->
+  <script>
+    const menuButton = document.querySelector('.menu-toggle');
+    const nav = document.querySelector('.nav');
+
+    // 1. Gerencia o menu mobile: alterna a visibilidade ao clicar no botão e fecha automaticamente ao clicar em um link
+    menuButton?.addEventListener('click', () => {
+      const open = nav.classList.toggle('open');
+      menuButton.setAttribute('aria-expanded', String(open));
+      menuButton.textContent = open ? '×' : '☰';
+    });
+
+    document.querySelectorAll('.nav a').forEach(link => {
+      link.addEventListener('click', () => {
+        nav.classList.remove('open');
+        menuButton?.setAttribute('aria-expanded', 'false');
+        if (menuButton) menuButton.textContent = '☰';
+      });
+    });
+
+    // 2. Intercepta o envio do formulário (caso exista na página atual de forma oculta ou dinâmica)
+    document.querySelector('.contact-form')?.addEventListener('submit', event => {
+      event.preventDefault();
+      const message = document.querySelector('.form-message');
+      if (message) message.textContent = 'Mensagem enviada! Em breve entraremos em contato.';
+      event.currentTarget.reset();
+    });
+  </script>
+</body>
+</html>

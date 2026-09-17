@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <!-- A tag viewport garante que o site seja responsivo e se ajuste bem a celulares e tablets -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Descrição voltada para SEO (mecanismos de busca) -->
+  <meta name="description" content="Ingressos e contato do Spotlight.">
+  <title>Ingressos | Spotlight</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  
+  <!-- CABEÇALHO (HEADER)- Navegação principal e identificação da marca -->
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="index.html">
+        <strong>SPOTLIGHT</strong>
+        <span>Festival de Cinema Independente</span>
+      </a>
+      
+      <!-- Botão para abrir/fechar o menu em dispositivos móveis -->
+      <button class="menu-toggle" aria-label="Abrir menu" aria-expanded="false">☰</button>
+      
+      <nav class="nav">
+        <a href="index.html">Início</a>
+        <a href="index.html#sobre">Sobre</a>
+        <a href="programacao.html">Programação</a>
+        <a href="programacao.html#palestrantes">Palestrantes</a>
+        <a class="active" href="ingressos.html">Ingressos</a>
+        <a href="#contato">Contato</a>
+      </nav>
+    </div>
+  </header>
+  <!-- CONTEÚDO PRINCIPAL (MAIN) -->
+  <main>
+    
+    <!-- Hero da página interna de Ingressos -->
+    <section class="page-hero">
+      <div class="container">
+        <span class="eyebrow">Seu lugar está reservado</span>
+        <h1>INGRESSOS</h1>
+        <p>Escolha como você quer viver o Spotlight. Valores e compra ilustrativos para este evento fictício.</p>
+      </div>
+    </section>
+
+    <!-- Seção de cards de opções de ingressos -->
+    <section class="section">
+      <div class="container">
+        <div class="ticket-grid">
+          
+          <article class="ticket">
+            <span class="ticket-label">Essencial</span>
+            <h2>Ingresso Diário</h2>
+            <p class="price">R$ 45<small>,00</small></p>
+            <ul class="benefits">
+              <li>Acesso por um dia</li>
+              <li>Exibições da data escolhida</li>
+              <li>Palestras abertas</li>
+            </ul>
+            <button class="btn">Selecionar</button>
+          </article>
+          
+          <!-- A classe 'featured' destaca visualmente a melhor opção de compra -->
+          <article class="ticket featured">
+            <span class="ticket-label">Mais escolhido</span>
+            <h2>Passaporte Festival</h2>
+            <p class="price">R$ 120<small>,00</small></p>
+            <ul class="benefits">
+              <li>Acesso aos quatro dias</li>
+              <li>Todas as exibições e palestras</li>
+              <li>Workshop à escolha</li>
+              <li>Cerimônia de premiação</li>
+            </ul>
+            <button class="btn">Selecionar</button>
+          </article>
+          
+          <article class="ticket">
+            <span class="ticket-label">Experiência completa</span>
+            <h2>Spotlight VIP</h2>
+            <p class="price">R$ 210<small>,00</small></p>
+            <ul class="benefits">
+              <li>Todos os benefícios do passaporte</li>
+              <li>Assentos reservados</li>
+              <li>Encontro com convidados</li>
+              <li>Kit oficial do festival</li>
+            </ul>
+            <button class="btn">Selecionar</button>
+          </article>
+          
+        </div>
+      </div>
+    </section>
+
+    <!-- Seção de Patrocinadores -->
+    <section class="section sponsors">
+      <div class="container">
+        <div class="section-heading center">
+          <span class="eyebrow">Quem ilumina esta edição</span>
+          <h2 class="section-title">PATROCINADORES</h2>
+        </div>
+        <div class="sponsor-row">
+          <span>CINE LAB</span>
+          <span>LUMEN</span>
+          <span>FRAME</span>
+          <span>ARTE FILMES</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Seção de Contato e Formulário -->
+    <section class="section contact-section" id="contato">
+      <div class="container contact-grid">
+        <div>
+          <span class="eyebrow">Fale com a equipe</span>
+          <h2 class="section-title">CONTATO</h2>
+          <div class="contact-list">
+            <p><strong>E-mail</strong><br>contato@festivalspotlight.com.br</p>
+            <p><strong>Local</strong><br>Cine Belas Artes · São Paulo, SP</p>
+            <p><strong>Atendimento</strong><br>Segunda a sexta, das 10h às 18h</p>
+          </div>
+        </div>
+        
+        <!-- Formulário que interage com o script abaixo para feedback em tempo real -->
+        <form class="contact-form">
+          <div class="field">
+            <label for="nome">Nome</label>
+            <input type="text" id="nome" name="nome" required>
+          </div>
+          <div class="field">
+            <label for="email">E-mail</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+          <div class="field full">
+            <label for="assunto">Assunto</label>
+            <input type="text" id="assunto" name="assunto">
+          </div>
+          <div class="field full">
+            <label for="mensagem">Mensagem</label>
+            <textarea id="mensagem" name="mensagem" required></textarea>
+          </div>
+          <div class="field full">
+            <button class="btn" type="submit">Enviar mensagem</button>
+          </div>
+          <!-- O atributo 'aria-live' avisa leitores de tela quando o conteúdo da tag sofrer alterações dinâmicas -->
+          <p class="form-message" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- RODAPÉ (FOOTER) -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <a class="brand" href="index.html">
+          <strong>SPOTLIGHT</strong>
+          <span>Festival de Cinema Independente</span>
+        </a>
+        <nav class="footer-links">
+          <a href="#">Política de Privacidade</a>
+          <a href="#">Termos de Uso</a>
+          <a href="#contato">Contato</a>
+        </nav>
+        <div class="socials">
+          <a href="#">◎</a>
+          <a href="#">▶</a>
+          <a href="#">𝕏</a>
+        </div>
+      </div>
+      <p class="copyright">© 2026 Spotlight — Festival de Cinema Independente</p>
+    </div>
+  </footer>
+
+  <!-- LÓGICA JAVASCRIPT -->
+  <script>
+    const menuButton = document.querySelector('.menu-toggle');
+    const nav = document.querySelector('.nav');
+
+    // 1. Gerencia o menu mobile: alterna a visibilidade ao clicar no botão e fecha automaticamente ao clicar em um link
+    menuButton?.addEventListener('click', () => {
+      const open = nav.classList.toggle('open');
+      menuButton.setAttribute('aria-expanded', String(open));
+      menuButton.textContent = open ? '×' : '☰';
+    });
+
+    document.querySelectorAll('.nav a').forEach(link => {
+      link.addEventListener('click', () => {
+        nav.classList.remove('open');
+        menuButton?.setAttribute('aria-expanded', 'false');
+        if (menuButton) menuButton.textContent = '☰';
+      });
+    });
+
+    // 2. Intercepta o envio do formulário para exibir uma mensagem de sucesso sem recarregar a página
+    document.querySelector('.contact-form')?.addEventListener('submit', event => {
+      event.preventDefault(); // Evita o comportamento padrão do HTML (recarregar a página)
+      const message = document.querySelector('.form-message');
+      if (message) message.textContent = 'Mensagem enviada! Em breve entraremos em contato.';
+      event.currentTarget.reset(); // Limpa os campos preenchidos
+    });
+  </script>
+</body>
+</html>

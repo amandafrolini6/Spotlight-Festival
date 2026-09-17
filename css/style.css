@@ -1,0 +1,801 @@
+/* 1. IMPORTAÇÃO DE FONTES E VARIÁVEIS GLOBAIS (:root) */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap');
+:root {
+  --black: #080808;
+  --black-soft: #111010;
+  --wine: #4a0f1d;
+  --wine-dark: #300811;
+  --red: #c52a3d;
+  --red-dark: #a51f31;
+  --white: #ffffff;
+  --cream: #f6f1e9;
+  --cream-dark: #e9e0d5;
+  --ink: #211b1c;
+  --muted: #6d6264;
+  --line: rgba(74, 15, 29, .16);
+  --serif: 'Cormorant Garamond', Georgia, serif;
+  --sans: 'Inter', Arial, sans-serif;
+}
+/* 2. ESTILOS BASE E RESET GLOBAL */
+* { 
+  box-sizing: border-box; 
+  margin: 0; 
+  padding: 0; 
+}
+
+html { 
+  scroll-behavior: smooth; 
+}
+
+body { 
+  font-family: var(--sans); 
+  color: var(--ink); 
+  background: var(--cream); 
+  line-height: 1.65; 
+}
+
+img { 
+  width: 100%; 
+  display: block; 
+}
+
+a { 
+  color: inherit; 
+  text-decoration: none; 
+}
+
+button { 
+  font: inherit; 
+}
+
+/* 3. COMPONENTES REUTILIZÁVEIS E UTILITÁRIOS */
+.container { 
+  width: min(1160px, calc(100% - 40px)); 
+  margin: 0 auto; 
+}
+
+.section { 
+  padding: 92px 0; 
+}
+
+.eyebrow { 
+  color: var(--red); 
+  font-size: .75rem; 
+  font-weight: 700; 
+  letter-spacing: .2em; 
+  text-transform: uppercase; 
+}
+
+.section-title { 
+  margin-top: 8px; 
+  font: 700 clamp(2.25rem, 4vw, 3.6rem)/1 var(--serif); 
+  color: var(--wine-dark); 
+  letter-spacing: -.02em; 
+}
+
+.section-heading { 
+  max-width: 620px; 
+  margin-bottom: 48px; 
+}
+
+.section-heading.center { 
+  text-align: center; 
+  margin-inline: auto; 
+}
+
+/* Botões */
+.btn { 
+  display: inline-flex; 
+  align-items: center; 
+  justify-content: center; 
+  min-height: 48px; 
+  padding: 0 25px; 
+  border: 1px solid transparent; 
+  background: var(--red); 
+  color: var(--white); 
+  font-size: .76rem; 
+  font-weight: 700; 
+  letter-spacing: .12em; 
+  text-transform: uppercase; 
+  transition: background .2s, color .2s, border-color .2s; 
+  cursor: pointer; 
+}
+
+.btn:hover, 
+.btn:focus-visible { 
+  background: var(--red-dark); 
+}
+
+.btn-outline { 
+  background: transparent; 
+  border-color: rgba(255,255,255,.5); 
+}
+
+.btn-outline:hover { 
+  background: var(--white); 
+  color: var(--wine); 
+}
+
+/* 4. CABEÇALHO (SITE HEADER) E NAVEGAÇÃO */
+.site-header { 
+  position: sticky; 
+  top: 0; 
+  z-index: 50; 
+  background: rgba(8,8,8,.97); 
+  color: var(--white); 
+  border-bottom: 1px solid rgba(255,255,255,.08); 
+}
+
+.nav-wrap { 
+  min-height: 78px; 
+  display: flex; 
+  align-items: center; 
+  justify-content: space-between; 
+  gap: 28px; 
+}
+
+.brand { 
+  display: flex; 
+  flex-direction: column; 
+  line-height: 1; 
+  flex-shrink: 0; 
+}
+
+.brand strong { 
+  font: 700 1.55rem var(--serif); 
+  letter-spacing: .16em; 
+}
+
+.brand span { 
+  margin-top: 6px; 
+  color: #cfc3c4; 
+  font-size: .58rem; 
+  letter-spacing: .09em; 
+  text-transform: uppercase; 
+}
+
+.nav { 
+  display: flex; 
+  align-items: center; 
+  gap: clamp(16px, 2vw, 28px); 
+}
+
+.nav a { 
+  color: #eee7e7; 
+  font-size: .78rem; 
+  font-weight: 500; 
+}
+
+.nav a:hover, 
+.nav a.active { 
+  color: #ff687b; 
+}
+
+.socials { 
+  display: flex; 
+  align-items: center; 
+  gap: 13px; 
+}
+
+.socials a { 
+  display: grid; 
+  place-items: center; 
+  width: 28px; 
+  height: 28px; 
+  color: #eee; 
+}
+
+.socials svg { 
+  width: 17px; 
+  height: 17px; 
+  fill: currentColor; 
+}
+
+.menu-toggle { 
+  display: none; 
+  border: 0; 
+  background: none; 
+  color: white; 
+  font-size: 1.5rem; 
+  cursor: pointer; 
+}
+
+/* 5. SEÇÃO HERO (BANNER PRINCIPAL) */
+.hero { 
+  min-height: 680px; 
+  display: grid; 
+  align-items: center; 
+  position: relative; 
+  color: white; 
+  background: #070707 url('../assets/images/hero-cinema.png') center/cover no-repeat; 
+  isolation: isolate; 
+}
+
+.hero::before { 
+  content: ''; 
+  position: absolute; 
+  inset: 0; 
+  z-index: -1; 
+  background: linear-gradient(90deg, rgba(3,3,3,.96) 0%, rgba(3,3,3,.79) 39%, rgba(3,3,3,.12) 75%); 
+}
+
+.hero-content { 
+  max-width: 625px; 
+  padding: 90px 0; 
+}
+
+.hero-kicker { 
+  display: flex; 
+  align-items: center; 
+  gap: 12px; 
+  color: #e1c9bc; 
+  font-size: .75rem; 
+  letter-spacing: .22em; 
+  text-transform: uppercase; 
+}
+
+.hero-kicker::before { 
+  content: ''; 
+  width: 35px; 
+  height: 1px; 
+  background: var(--red); 
+}
+
+.hero h1 { 
+  margin: 20px 0 0; 
+  font: 700 clamp(4rem, 8vw, 7.4rem)/.8 var(--serif); 
+  letter-spacing: .04em; 
+}
+
+.hero h2 { 
+  margin-top: 18px; 
+  font-size: .9rem; 
+  font-weight: 500; 
+  letter-spacing: .26em; 
+  text-transform: uppercase; 
+}
+
+.hero blockquote { 
+  margin: 38px 0; 
+  font: italic 500 clamp(1.35rem, 2.5vw, 2rem)/1.35 var(--serif); 
+  color: #f1e9e5; 
+}
+
+.hero-meta { 
+  margin-top: 32px; 
+  color: #d9cbca; 
+  font-size: .8rem; 
+  letter-spacing: .1em; 
+  text-transform: uppercase; 
+}
+
+/* 6. SEÇÃO SOBRE O EVENTO */
+.about-grid { 
+  display: grid; 
+  grid-template-columns: 1.05fr .95fr; 
+  gap: 76px; 
+  align-items: center; 
+}
+
+.about-copy p { 
+  margin: 28px 0 32px; 
+  color: var(--muted); 
+  font-size: 1rem; 
+}
+
+.about-image { 
+  position: relative; 
+}
+
+.about-image img { 
+  aspect-ratio: 4/3; 
+  object-fit: cover; 
+}
+
+.about-image::after { 
+  content: ''; 
+  position: absolute; 
+  inset: 18px -18px -18px 18px; 
+  border: 1px solid var(--red); 
+  z-index: -1; 
+}
+
+.text-link { 
+  color: var(--wine); 
+  font-size: .78rem; 
+  font-weight: 700; 
+  letter-spacing: .11em; 
+  text-transform: uppercase; 
+  border-bottom: 1px solid var(--red); 
+  padding-bottom: 4px; 
+}
+
+/* ==========================================================================
+   7. SEÇÃO DE DESTAQUES (HIGHLIGHTS)
+   ========================================================================== */
+.highlights { 
+  background: var(--white); 
+}
+
+.highlight-grid { 
+  display: grid; 
+  grid-template-columns: repeat(4, 1fr); 
+  gap: 1px; 
+  background: var(--line); 
+  border: 1px solid var(--line); 
+}
+
+.highlight-card { 
+  background: var(--white); 
+  padding: 36px 28px; 
+}
+
+.icon-box { 
+  width: 45px; 
+  height: 45px; 
+  display: grid; 
+  place-items: center; 
+  border: 1px solid var(--red); 
+  color: var(--red); 
+  margin-bottom: 24px; 
+}
+
+.icon-box svg { 
+  width: 22px; 
+  height: 22px; 
+  fill: none; 
+  stroke: currentColor; 
+  stroke-width: 1.6; 
+}
+
+.highlight-card h3, 
+.schedule-card h3 { 
+  font: 700 1.35rem/1.2 var(--serif); 
+  color: var(--wine-dark); 
+}
+
+.highlight-card p, 
+.schedule-card p { 
+  margin-top: 9px; 
+  color: var(--muted); 
+  font-size: .88rem; 
+}
+
+/* 8. PROGRAMAÇÃO E AGENDA */
+.schedule-grid { 
+  display: grid; 
+  grid-template-columns: repeat(2, 1fr); 
+  gap: 18px; 
+}
+
+.schedule-card { 
+  display: flex; 
+  align-items: center; 
+  gap: 24px; 
+  padding: 26px 28px; 
+  background: var(--white); 
+  border-left: 3px solid var(--red); 
+}
+
+.schedule-card .number { 
+  color: var(--red); 
+  font: 600 1.8rem var(--serif); 
+  min-width: 40px; 
+}
+
+.page-hero { 
+  padding: 110px 0 82px; 
+  background: var(--black-soft); 
+  color: white; 
+  text-align: center; 
+}
+
+.page-hero h1 { 
+  margin-top: 12px; 
+  font: 700 clamp(3rem, 6vw, 5.2rem)/.95 var(--serif); 
+}
+
+.page-hero p { 
+  max-width: 600px; 
+  margin: 20px auto 0; 
+  color: #cfc5c5; 
+}
+
+.agenda { 
+  display: grid; 
+  gap: 1px; 
+  border: 1px solid var(--line); 
+  background: var(--line); 
+}
+
+.agenda-item { 
+  display: grid; 
+  grid-template-columns: 130px 1fr auto; 
+  align-items: center; 
+  gap: 30px; 
+  background: white; 
+  padding: 27px 30px; 
+}
+
+.agenda-time { 
+  color: var(--red); 
+  font-weight: 700; 
+  letter-spacing: .08em; 
+}
+
+.agenda-item h3 { 
+  font: 700 1.3rem var(--serif); 
+}
+
+.agenda-item p { 
+  color: var(--muted); 
+  font-size: .86rem; 
+}
+
+.agenda-tag { 
+  padding: 5px 10px; 
+  border: 1px solid var(--line); 
+  color: var(--wine); 
+  font-size: .68rem; 
+  font-weight: 700; 
+  text-transform: uppercase; 
+}
+
+/* 9. PALESTRANTES */
+.speakers { 
+  background: white; 
+}
+
+.speaker-grid { 
+  display: grid; 
+  grid-template-columns: repeat(3, 1fr); 
+  gap: 24px; 
+}
+
+.speaker-card { 
+  background: var(--cream); 
+  padding: 34px; 
+  border-top: 3px solid var(--wine); 
+}
+
+.speaker-initial { 
+  width: 58px; 
+  height: 58px; 
+  display: grid; 
+  place-items: center; 
+  border-radius: 50%; 
+  background: var(--wine); 
+  color: white; 
+  font: 600 1.45rem var(--serif); 
+  margin-bottom: 23px; 
+}
+
+.speaker-card h3 { 
+  font: 700 1.45rem var(--serif); 
+}
+
+.speaker-role { 
+  color: var(--red); 
+  font-size: .74rem; 
+  font-weight: 700; 
+  text-transform: uppercase; 
+  letter-spacing: .08em; 
+}
+
+.speaker-card p:last-child { 
+  color: var(--muted); 
+  font-size: .88rem; 
+  margin-top: 12px; 
+}
+
+/* 10. INGRESSOS E PREÇOS */
+.ticket-grid { 
+  display: grid; 
+  grid-template-columns: repeat(3, 1fr); 
+  gap: 22px; 
+  align-items: stretch; 
+}
+
+.ticket { 
+  background: white; 
+  padding: 38px 32px; 
+  border: 1px solid var(--line); 
+  display: flex; 
+  flex-direction: column; 
+}
+
+.ticket.featured { 
+  background: var(--wine-dark); 
+  color: white; 
+  transform: translateY(-10px); 
+}
+
+.ticket-label { 
+  color: var(--red); 
+  font-size: .7rem; 
+  font-weight: 700; 
+  letter-spacing: .14em; 
+  text-transform: uppercase; 
+}
+
+.ticket h2 { 
+  margin: 10px 0 20px; 
+  font: 700 2rem var(--serif); 
+}
+
+.price { 
+  font: 700 2.8rem var(--serif); 
+}
+
+.price small { 
+  font: 500 .8rem var(--sans); 
+}
+
+.benefits { 
+  list-style: none; 
+  margin: 28px 0 34px; 
+  flex-grow: 1; 
+}
+
+.benefits li { 
+  border-top: 1px solid rgba(74,15,29,.12); 
+  padding: 12px 0; 
+  font-size: .86rem; 
+}
+
+.featured .benefits li { 
+  border-color: rgba(255,255,255,.12); 
+}
+
+.benefits li::before { 
+  content: '✓'; 
+  color: var(--red); 
+  margin-right: 9px; 
+  font-weight: 700; 
+}
+
+/* 11. PATROCINADORES E CONTATO */
+.sponsors { 
+  text-align: center; 
+}
+
+.sponsor-row { 
+  display: flex; 
+  justify-content: center; 
+  flex-wrap: wrap; 
+  gap: 46px; 
+  color: #8c8181; 
+  font: 700 1.2rem var(--serif); 
+  letter-spacing: .08em; 
+}
+
+.contact-section { 
+  background: white; 
+}
+
+.contact-grid { 
+  display: grid; 
+  grid-template-columns: .8fr 1.2fr; 
+  gap: 80px; 
+}
+
+.contact-list { 
+  margin-top: 28px; 
+  display: grid; 
+  gap: 18px; 
+  color: var(--muted); 
+}
+
+.contact-list strong { 
+  color: var(--wine); 
+  display: block; 
+  font-size: .76rem; 
+  text-transform: uppercase; 
+  letter-spacing: .08em; 
+}
+
+.contact-form { 
+  display: grid; 
+  grid-template-columns: 1fr 1fr; 
+  gap: 18px; 
+}
+
+.field { 
+  display: grid; 
+  gap: 7px; 
+}
+
+.field.full { 
+  grid-column: 1 / -1; 
+}
+
+.field label { 
+  color: var(--wine); 
+  font-size: .74rem; 
+  font-weight: 700; 
+  text-transform: uppercase; 
+}
+
+.field input, 
+.field textarea { 
+  width: 100%; 
+  padding: 14px; 
+  border: 1px solid #d8ceca; 
+  background: var(--cream); 
+  color: var(--ink); 
+  font: inherit; 
+}
+
+.field textarea { 
+  min-height: 120px; 
+  resize: vertical; 
+}
+
+.form-message { 
+  color: var(--wine); 
+  font-size: .84rem; 
+  grid-column: 1 / -1; 
+}
+
+/* 12. CHAMADA PARA AÇÃO (CTA) E RODAPÉ (FOOTER) */
+.cta { 
+  background: var(--wine-dark); 
+  color: white; 
+  padding: 62px 0; 
+}
+
+.cta-inner { 
+  display: flex; 
+  align-items: center; 
+  justify-content: space-between; 
+  gap: 35px; 
+}
+
+.cta h2 { 
+  font: 700 clamp(2.2rem, 4vw, 3.4rem)/1 var(--serif); 
+}
+
+.cta p { 
+  margin-top: 9px; 
+  color: #dbc9c9; 
+}
+
+.site-footer { 
+  background: var(--black); 
+  color: #bbb0b1; 
+  padding: 42px 0; 
+}
+
+.footer-top { 
+  display: flex; 
+  align-items: center; 
+  justify-content: space-between; 
+  gap: 28px; 
+}
+
+.footer-links { 
+  display: flex; 
+  gap: 26px; 
+  font-size: .78rem; 
+}
+
+.footer-links a:hover { 
+  color: white; 
+}
+
+.copyright { 
+  margin-top: 28px; 
+  padding-top: 24px; 
+  border-top: 1px solid rgba(255,255,255,.08); 
+  font-size: .72rem; 
+  text-align: center; 
+}
+
+/* 13. MEDIA QUERIES (RESPONSIVIDADE) */
+@media (max-width: 960px) {
+  .nav, 
+  .site-header > .socials { 
+    display: none; 
+  }
+  
+  .nav-wrap { 
+    flex-wrap: wrap; 
+  }
+  
+  .menu-toggle { 
+    display: block; 
+  }
+  
+  .nav.open { 
+    display: flex; 
+    width: 100%; 
+    flex-direction: column; 
+    align-items: flex-start; 
+    padding: 5px 0 20px; 
+  }
+  
+  .highlight-grid { 
+    grid-template-columns: repeat(2, 1fr); 
+  }
+  
+  .about-grid, 
+  .contact-grid { 
+    gap: 45px; 
+  }
+  
+  .ticket-grid { 
+    grid-template-columns: 1fr; 
+    max-width: 620px; 
+    margin-inline: auto; 
+  }
+  
+  .ticket.featured { 
+    transform: none; 
+  }
+}
+
+@media (max-width: 720px) {
+  .container { 
+    width: min(100% - 28px, 1160px); 
+  }
+  
+  .section { 
+    padding: 68px 0; 
+  }
+  
+  .hero { 
+    min-height: 620px; 
+    background-position: 62% center; 
+  }
+  
+  .hero::before { 
+    background: rgba(3,3,3,.72); 
+  }
+  
+  .hero h1 { 
+    font-size: clamp(3.2rem, 17vw, 5.2rem); 
+  }
+  
+  .about-grid, 
+  .schedule-grid, 
+  .speaker-grid, 
+  .contact-grid { 
+    grid-template-columns: 1fr; 
+  }
+  
+  .about-image { 
+    margin: 0 14px 14px 0; 
+  }
+  
+  .highlight-grid { 
+    grid-template-columns: 1fr; 
+  }
+  
+  .cta-inner, 
+  .footer-top { 
+    flex-direction: column; 
+    align-items: flex-start; 
+  }
+  
+  .footer-links { 
+    flex-wrap: wrap; 
+    gap: 14px 22px; 
+  }
+  
+  .agenda-item { 
+    grid-template-columns: 1fr; 
+    gap: 7px; 
+  }
+  
+  .agenda-tag { 
+    width: fit-content; 
+  }
+  
+  .contact-form { 
+    grid-template-columns: 1fr; 
+  }
+  
+  .field.full { 
+    grid-column: auto; 
+  }
+}

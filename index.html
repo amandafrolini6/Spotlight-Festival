@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <!-- A tag viewport é essencial para a responsividade, garantindo que o site se adapte à largura da tela do celular -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- A meta description melhora o SEO, dizendo ao Google sobre o que é a página -->
+  <meta name="description" content="Spotlight — Festival de Cinema Independente. Histórias originais, novas vozes e experiências cinematográficas.">
+  <title>Spotlight | Festival de Cinema Independente</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  
+  <!-- CABEÇALHO (HEADER) - Semântica estrutural
+       O uso da tag <header> ajuda motores de busca e leitores 
+       de tela a identificar o topo da página. -->
+  <header class="site-header">
+    <div class="container nav-wrap">
+      
+      <!-- Link encapsulando texto principal. Redireciona para a home. -->
+      <a class="brand" href="index.html">
+        <strong>SPOTLIGHT</strong>
+        <span>Festival de Cinema Independente</span>
+      </a>
+      
+      <!-- Botão do Menu Mobile. 
+           Os atributos 'aria-label' e 'aria-expanded' são cruciais para a acessibilidade.
+           Eles "falam" para deficientes visuais a função do botão e se o menu está aberto ou fechado. -->
+      <button class="menu-toggle" aria-label="Abrir menu" aria-expanded="false">☰</button>
+      
+      <!-- Tag semântica <nav> indica que este bloco contém os links principais de navegação -->
+      <nav class="nav" aria-label="Navegação principal">
+        <a class="active" href="index.html">Início</a>
+        <a href="#sobre">Sobre</a>
+        <a href="programacao.html">Programação</a>
+        <a href="programacao.html#palestrantes">Palestrantes</a>
+        <a href="ingressos.html">Ingressos</a>
+        <a href="ingressos.html#contato">Contato</a>
+      </nav>
+      
+      <div class="socials" aria-label="Redes sociais">
+        <!-- O uso de SVG inline garante que os ícones fiquem nítidos em qualquer resolução e carreguem instantaneamente, sem requisições extras -->
+        <a href="#" aria-label="Instagram">
+          <svg viewBox="0 0 24 24"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7m11 1.5a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5M12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10m0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6z"/></svg>
+        </a>
+        <a href="#" aria-label="YouTube">
+          <svg viewBox="0 0 24 24"><path d="M23 7s-.2-1.4-.8-2c-.8-.8-1.6-.8-2-.9C17.4 4 13.2 4 12 4s-5.4 0-8.2.1c-.4.1-1.2.1-2 .9C1.2 5.6 1 7 1 7S.8 8.6.8 10.2v1.6C.8 13.4 1 15 1 15s.2 1.4.8 2c.8.8 1.8.8 2.3.9 1.7.2 6.7.1 7.9.1s5.4 0 8.2-.1c.4-.1 1.2-.1 2-.9.6-.6.8-2 .8-2s.2-1.6.2-3.2v-1.6C23.2 8.6 23 7 23 7M9.6 14.5v-5l6.4 2.5-6.4 2.5z"/></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN e SECTIONS
+       A tag <main> diz ao navegador onde está o conteúdo principal.
+       Cada <section> divide o documento em blocos temáticos.-->
+  <main>
+    
+    <section class="hero" id="inicio">
+      <div class="container">
+        <div class="hero-content">
+          <p class="hero-kicker">11–14 de junho de 2026 · São Paulo</p>
+          <h1>SPOTLIGHT</h1>
+          <h2>Festival de Cinema Independente</h2>
+          <!-- Tag <blockquote> é usada semanticamente para citações destacadas -->
+          <blockquote>“Toda história merece os holofotes.”</blockquote>
+          <a class="btn" href="ingressos.html">Inscreva-se</a>
+          <p class="hero-meta">4 dias · 30 produções · 12 convidados</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="sobre">
+      <div class="container about-grid">
+        <div class="about-copy">
+          <span class="eyebrow">Nossa proposta</span>
+          <h2 class="section-title">SOBRE O EVENTO</h2>
+          <p>O Spotlight é um festival de cinema independente que celebra histórias originais, novas vozes e produções audiovisuais fora do circuito comercial...</p>
+          <a class="text-link" href="programacao.html">Conheça a programação →</a>
+        </div>
+        <!-- Tag <figure> é usada para encapsular imagens com importância semântica no texto (diferente de imagens puramente decorativas) -->
+        <figure class="about-image">
+          <img src="assets/images/claquete.png" alt="Claquete de cinema sobre poltrona de veludo vinho">
+        </figure>
+      </div>
+    </section>
+
+    <section class="section highlights">
+      <div class="container">
+        <div class="section-heading center">
+          <span class="eyebrow">Por que participar</span>
+          <h2 class="section-title">DESTAQUES</h2>
+        </div>
+        <div class="highlight-grid">
+          <!-- A tag <article> é ideal para conteúdos que fazem sentido por si mesmos, como cards independentes -->
+          <article class="highlight-card">
+            <div class="icon-box"><svg viewBox="0 0 24 24"><path d="M3 5h18v14H3zM7 5l3 4m3-4 3 4m-9 6h5"/></svg></div>
+            <h3>Produções Independentes</h3>
+            <p>Novas vozes, grandes histórias.</p>
+          </article>
+          
+          <article class="highlight-card">
+            <div class="icon-box"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2"/><path d="M3 20c0-4 2-6 6-6s6 2 6 6m0-5c3 0 5 2 5 5"/></svg></div>
+            <h3>Cineastas Convidados</h3>
+            <p>Diretores, atores e produtores.</p>
+          </article>
+          
+          <article class="highlight-card">
+            <div class="icon-box"><svg viewBox="0 0 24 24"><path d="M8 3h8v5a4 4 0 0 1-8 0V3zm0 2H4v2c0 3 2 5 5 5m7-7h4v2c0 3-2 5-5 5m-3 0v5m-4 4h8"/></svg></div>
+            <h3>Premiações</h3>
+            <p>Reconhecimento às melhores produções.</p>
+          </article>
+          
+          <article class="highlight-card">
+            <div class="icon-box"><svg viewBox="0 0 24 24"><path d="M3 6h18v12H3zM8 18v3m8-3v3M3 10h18m-14 4h2m3 0h5"/></svg></div>
+            <h3>Experiência Cinematográfica</h3>
+            <p>Sessões especiais e debates.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Outras seções omitidas para brevidade na leitura, mantém a estrutura original -->
+    <section class="cta">
+      <div class="container cta-inner">
+        <div>
+          <h2>GARANTA SEU INGRESSO</h2>
+          <p>Viva o melhor do cinema independente.</p>
+        </div>
+        <a class="btn btn-outline" href="ingressos.html">Comprar ingressos</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <a class="brand" href="index.html">
+          <strong>SPOTLIGHT</strong>
+          <span>Festival de Cinema Independente</span>
+        </a>
+        <nav class="footer-links">
+          <a href="#">Política de Privacidade</a>
+          <a href="#">Termos de Uso</a>
+          <a href="ingressos.html#contato">Contato</a>
+        </nav>
+        <div class="socials">
+          <a href="#" aria-label="Instagram">◎</a>
+          <a href="#" aria-label="YouTube">▶</a>
+          <a href="#" aria-label="X/Twitter">𝕏</a>
+        </div>
+      </div>
+      <p class="copyright">© 2026 Spotlight — Festival de Cinema Independente</p>
+    </div>
+  </footer>
+  
+  <script>
+    // Seleciona elementos do DOM (Document Object Model) para manipulá-los
+    const menuButton = document.querySelector('.menu-toggle');
+    const nav = document.querySelector('.nav');
+
+    /* O sinal '?.' (Optional Chaining) impede erros caso o botão não exista na tela.
+      Ouve o evento de clique para alternar o estado do menu.*/
+    menuButton?.addEventListener('click', () => {
+      // toggle() adiciona a classe 'open' se ela não existir, ou remove se já existir.
+      // Retorna 'true' (aberto) ou 'false' (fechado)
+      const open = nav.classList.toggle('open');
+      
+      // Atualiza os atributos de acessibilidade dinamicamente e altera o ícone
+      menuButton.setAttribute('aria-expanded', String(open));
+      menuButton.textContent = open ? '×' : '☰';
+    });
+
+    /* FECHAR MENU AO CLICAR EM UM LINK
+      Itera (faz um loop) por todos os links dentro da navegação.
+      Garante que a tela não fique "bloqueada" pelo menu aberto após a navegação interna */
+    document.querySelectorAll('.nav a').forEach(link => {
+      link.addEventListener('click', () => {
+        nav.classList.remove('open'); // Força a remoção da classe
+        menuButton?.setAttribute('aria-expanded', 'false'); // Reseta a acessibilidade
+        if (menuButton) menuButton.textContent = '☰'; // Volta ao ícone de hambúrguer
+      });
+    });
+
+    /* MANIPULAR ENVIO DE FORMULÁRIO (Prevenção de Recarregamento)
+      Intercepta o evento 'submit' (envio) do formulário caso ele exista nesta página.*/
+    document.querySelector('.contact-form')?.addEventListener('submit', event => {
+      // preventDefault() anula o comportamento padrão do HTML (que seria recarregar a página e mandar os dados via URL/POST)
+      event.preventDefault();
+      
+      const message = document.querySelector('.form-message');
+      
+      // Insere um feedback visual para o usuário confirmando o sucesso da ação
+      if(message) message.textContent = 'Mensagem enviada! Em breve entraremos em contato.';
+      
+      // target.reset() limpa automaticamente todos os campos digitados (inputs e textareas)
+      event.currentTarget.reset();
+    });
+  </script>
+</body>
+</html>
