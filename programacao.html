@@ -19,10 +19,16 @@
         <span>Festival de Cinema Independente</span>
       </a>
       
-      <!-- Botão do Menu Mobile com atributos de acessibilidade -->
-      <button class="menu-toggle" aria-label="Abrir menu" aria-expanded="false">☰</button>
       
-      <nav class="nav">
+      <!-- MODIFICADO — MENU SEM JAVASCRIPT:
+           O checkbox guarda o estado aberto/fechado. O label permite alterná-lo
+           com clique; pelo teclado, use Tab e Espaço no checkbox.
+           No CSS, :checked mostra a navegação que vem depois deste campo.
+           O menu permanece aberto após clicar numa âncora; use Menu para fechá-lo. -->
+      <input class="menu-check" type="checkbox" id="menu-check" aria-controls="menu-principal">
+      <label class="menu-toggle" for="menu-check">☰ <span>Menu</span></label>
+      
+      <nav class="nav" id="menu-principal" aria-label="Navegação principal">
         <a href="index.html">Início</a>
         <a href="index.html#sobre">Sobre</a>
         <a class="active" href="programacao.html">Programação</a>
@@ -105,37 +111,58 @@
       </div>
     </section>
 
-    <!-- Seção de Palestrantes -->
+    <!-- MODIFICADO — PALESTRANTES EM CARDS HORIZONTAIS:
+         A película foi mantida, mas cada quadro agora usa display:flex.
+         A imagem fica à esquerda e o bloco film-caption fica à direita.
+         A foto ocupa 35% da largura e o texto 65%, com altura mínima de 190px.
+         A altura pode aumentar caso o texto precise de mais espaço.
+         Os cards têm cantos retos. Em telas menores, a película permite rolagem
+         horizontal, mantendo foto e texto lado a lado e sem JavaScript. -->
     <section class="section speakers" id="palestrantes">
       <div class="container">
         <div class="section-heading center">
           <span class="eyebrow">Encontros e novas perspectivas</span>
           <h2 class="section-title">PALESTRANTES</h2>
         </div>
-        <div class="speaker-grid">
-          
-          <article class="speaker-card">
-            <div class="speaker-initial">MR</div>
-            <h3>Marina Reis</h3>
-            <p class="speaker-role">Diretora e roteirista</p>
-            <p>Realizadora premiada por narrativas urbanas e histórias de identidade.</p>
-          </article>
-          
-          <article class="speaker-card">
-            <div class="speaker-initial">LC</div>
-            <h3>Lucas Costa</h3>
-            <p class="speaker-role">Produtor audiovisual</p>
-            <p>Especialista em viabilização e distribuição de projetos independentes.</p>
-          </article>
-          
-          <article class="speaker-card">
-            <div class="speaker-initial">BA</div>
-            <h3>Bianca Alves</h3>
-            <p class="speaker-role">Diretora de fotografia</p>
-            <p>Pesquisa luz, memória e linguagem visual em produções autorais.</p>
-          </article>
-          
+
+        <!-- NOVO: tabindex permite acessar a área de rolagem pelo teclado. -->
+        <div class="film-scroll" tabindex="0" role="region" aria-label="Palestrantes em fita de cinema">
+          <div class="film-strip">
+            <!-- Cada article é um quadro retangular: imagem primeiro, informações depois. -->
+            <article class="film-frame">
+              <!-- FOTO: troque foto-placeholder.svg por marina-reis.jpg quando tiver a foto.
+                   Coloque a foto na pasta assets/images. -->
+              <img src="assets/images/foto-placeholder.svg" alt="Espaço reservado para a foto de Marina Reis" loading="lazy" width="400" height="400">
+              <div class="film-caption">
+                <h3>Marina Reis</h3>
+                <p class="film-role">Diretora e roteirista</p>
+                <p>Realizadora premiada por narrativas urbanas e histórias de identidade.</p>
+              </div>
+            </article>
+
+            <article class="film-frame">
+              <!-- FOTO: troque foto-placeholder.svg por lucas-costa.jpg. -->
+              <img src="assets/images/foto-placeholder.svg" alt="Espaço reservado para a foto de Lucas Costa" loading="lazy" width="400" height="400">
+              <div class="film-caption">
+                <h3>Lucas Costa</h3>
+                <p class="film-role">Produtor audiovisual</p>
+                <p>Especialista em viabilização e distribuição de projetos independentes.</p>
+              </div>
+            </article>
+
+            <article class="film-frame">
+              <!-- FOTO: troque foto-placeholder.svg por bianca-alves.jpg. -->
+              <img src="assets/images/foto-placeholder.svg" alt="Espaço reservado para a foto de Bianca Alves" loading="lazy" width="400" height="400">
+              <div class="film-caption">
+                <h3>Bianca Alves</h3>
+                <p class="film-role">Diretora de fotografia</p>
+                <p>Pesquisa luz, memória e linguagem visual em produções autorais.</p>
+              </div>
+            </article>
+          </div>
         </div>
+        <!-- A dica aparece abaixo de 1200px, quando a película pode exigir rolagem. -->
+        <p class="film-hint">Deslize para ver os palestrantes →</p>
       </div>
     </section>
 
@@ -173,34 +200,5 @@
       <p class="copyright">© 2026 Spotlight — Festival de Cinema Independente</p>
     </div>
   </footer>
-
-  <!--LÓGICA JAVASCRIPT -->
-  <script>
-    const menuButton = document.querySelector('.menu-toggle');
-    const nav = document.querySelector('.nav');
-
-    // 1. Gerencia o menu mobile: alterna a visibilidade ao clicar no botão e fecha automaticamente ao clicar em um link
-    menuButton?.addEventListener('click', () => {
-      const open = nav.classList.toggle('open');
-      menuButton.setAttribute('aria-expanded', String(open));
-      menuButton.textContent = open ? '×' : '☰';
-    });
-
-    document.querySelectorAll('.nav a').forEach(link => {
-      link.addEventListener('click', () => {
-        nav.classList.remove('open');
-        menuButton?.setAttribute('aria-expanded', 'false');
-        if (menuButton) menuButton.textContent = '☰';
-      });
-    });
-
-    // 2. Intercepta o envio do formulário (caso exista na página atual de forma oculta ou dinâmica)
-    document.querySelector('.contact-form')?.addEventListener('submit', event => {
-      event.preventDefault();
-      const message = document.querySelector('.form-message');
-      if (message) message.textContent = 'Mensagem enviada! Em breve entraremos em contato.';
-      event.currentTarget.reset();
-    });
-  </script>
 </body>
 </html>

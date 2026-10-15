@@ -23,13 +23,17 @@
         <span>Festival de Cinema Independente</span>
       </a>
       
-      <!-- Botão do Menu Mobile. 
-           Os atributos 'aria-label' e 'aria-expanded' são cruciais para a acessibilidade.
-           Eles "falam" para deficientes visuais a função do botão e se o menu está aberto ou fechado. -->
-      <button class="menu-toggle" aria-label="Abrir menu" aria-expanded="false">☰</button>
+      
+      <!-- MODIFICADO — MENU SEM JAVASCRIPT:
+           O checkbox guarda o estado aberto/fechado. O label permite alterná-lo
+           com clique; pelo teclado, use Tab e Espaço no checkbox.
+           No CSS, :checked mostra a navegação que vem depois deste campo.
+           O menu permanece aberto após clicar numa âncora; use Menu para fechá-lo. -->
+      <input class="menu-check" type="checkbox" id="menu-check" aria-controls="menu-principal">
+      <label class="menu-toggle" for="menu-check">☰ <span>Menu</span></label>
       
       <!-- Tag semântica <nav> indica que este bloco contém os links principais de navegação -->
-      <nav class="nav" aria-label="Navegação principal">
+      <nav class="nav" id="menu-principal" aria-label="Navegação principal">
         <a class="active" href="index.html">Início</a>
         <a href="#sobre">Sobre</a>
         <a href="programacao.html">Programação</a>
@@ -84,6 +88,12 @@
       </div>
     </section>
 
+    <!-- MODIFICADO — DESTAQUES EM FORMATO DE CLAQUETE:
+         O ingresso foi substituído por uma claquete para diferenciar esta seção
+         da página de preços. Cada card recebe uma faixa decorativa no topo.
+         As duas listras da claquete são feitas pelos pseudo-elementos no CSS;
+         não é necessário baixar imagem nem usar JavaScript.
+         Os números 01 a 04, ícones, títulos e descrições foram preservados. -->
     <section class="section highlights">
       <div class="container">
         <div class="section-heading center">
@@ -93,24 +103,36 @@
         <div class="highlight-grid">
           <!-- A tag <article> é ideal para conteúdos que fazem sentido por si mesmos, como cards independentes -->
           <article class="highlight-card">
+            <!-- Número visual do destaque; o CSS posiciona no canto direito. -->
+            <span class="ticket-number">01</span>
+            <!-- Ícone original em SVG; a linha abaixo agora é contínua, não um canhoto. -->
             <div class="icon-box"><svg viewBox="0 0 24 24"><path d="M3 5h18v14H3zM7 5l3 4m3-4 3 4m-9 6h5"/></svg></div>
             <h3>Produções Independentes</h3>
             <p>Novas vozes, grandes histórias.</p>
           </article>
           
           <article class="highlight-card">
+            <!-- Número visual do destaque; o CSS posiciona no canto direito. -->
+            <span class="ticket-number">02</span>
+            <!-- Ícone original em SVG; a linha abaixo agora é contínua, não um canhoto. -->
             <div class="icon-box"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2"/><path d="M3 20c0-4 2-6 6-6s6 2 6 6m0-5c3 0 5 2 5 5"/></svg></div>
             <h3>Cineastas Convidados</h3>
             <p>Diretores, atores e produtores.</p>
           </article>
           
           <article class="highlight-card">
+            <!-- Número visual do destaque; o CSS posiciona no canto direito. -->
+            <span class="ticket-number">03</span>
+            <!-- Ícone original em SVG; a linha abaixo agora é contínua, não um canhoto. -->
             <div class="icon-box"><svg viewBox="0 0 24 24"><path d="M8 3h8v5a4 4 0 0 1-8 0V3zm0 2H4v2c0 3 2 5 5 5m7-7h4v2c0 3-2 5-5 5m-3 0v5m-4 4h8"/></svg></div>
             <h3>Premiações</h3>
             <p>Reconhecimento às melhores produções.</p>
           </article>
           
           <article class="highlight-card">
+            <!-- Número visual do destaque; o CSS posiciona no canto direito. -->
+            <span class="ticket-number">04</span>
+            <!-- Ícone original em SVG; a linha abaixo agora é contínua, não um canhoto. -->
             <div class="icon-box"><svg viewBox="0 0 24 24"><path d="M3 6h18v12H3zM8 18v3m8-3v3M3 10h18m-14 4h2m3 0h5"/></svg></div>
             <h3>Experiência Cinematográfica</h3>
             <p>Sessões especiais e debates.</p>
@@ -152,49 +174,5 @@
       <p class="copyright">© 2026 Spotlight — Festival de Cinema Independente</p>
     </div>
   </footer>
-  
-  <script>
-    // Seleciona elementos do DOM (Document Object Model) para manipulá-los
-    const menuButton = document.querySelector('.menu-toggle');
-    const nav = document.querySelector('.nav');
-
-    /* O sinal '?.' (Optional Chaining) impede erros caso o botão não exista na tela.
-      Ouve o evento de clique para alternar o estado do menu.*/
-    menuButton?.addEventListener('click', () => {
-      // toggle() adiciona a classe 'open' se ela não existir, ou remove se já existir.
-      // Retorna 'true' (aberto) ou 'false' (fechado)
-      const open = nav.classList.toggle('open');
-      
-      // Atualiza os atributos de acessibilidade dinamicamente e altera o ícone
-      menuButton.setAttribute('aria-expanded', String(open));
-      menuButton.textContent = open ? '×' : '☰';
-    });
-
-    /* FECHAR MENU AO CLICAR EM UM LINK
-      Itera (faz um loop) por todos os links dentro da navegação.
-      Garante que a tela não fique "bloqueada" pelo menu aberto após a navegação interna */
-    document.querySelectorAll('.nav a').forEach(link => {
-      link.addEventListener('click', () => {
-        nav.classList.remove('open'); // Força a remoção da classe
-        menuButton?.setAttribute('aria-expanded', 'false'); // Reseta a acessibilidade
-        if (menuButton) menuButton.textContent = '☰'; // Volta ao ícone de hambúrguer
-      });
-    });
-
-    /* MANIPULAR ENVIO DE FORMULÁRIO (Prevenção de Recarregamento)
-      Intercepta o evento 'submit' (envio) do formulário caso ele exista nesta página.*/
-    document.querySelector('.contact-form')?.addEventListener('submit', event => {
-      // preventDefault() anula o comportamento padrão do HTML (que seria recarregar a página e mandar os dados via URL/POST)
-      event.preventDefault();
-      
-      const message = document.querySelector('.form-message');
-      
-      // Insere um feedback visual para o usuário confirmando o sucesso da ação
-      if(message) message.textContent = 'Mensagem enviada! Em breve entraremos em contato.';
-      
-      // target.reset() limpa automaticamente todos os campos digitados (inputs e textareas)
-      event.currentTarget.reset();
-    });
-  </script>
 </body>
 </html>

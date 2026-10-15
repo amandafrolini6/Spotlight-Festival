@@ -19,10 +19,16 @@
         <span>Festival de Cinema Independente</span>
       </a>
       
-      <!-- Botão para abrir/fechar o menu em dispositivos móveis -->
-      <button class="menu-toggle" aria-label="Abrir menu" aria-expanded="false">☰</button>
       
-      <nav class="nav">
+      <!-- MODIFICADO — MENU SEM JAVASCRIPT:
+           O checkbox guarda o estado aberto/fechado. O label permite alterná-lo
+           com clique; pelo teclado, use Tab e Espaço no checkbox.
+           No CSS, :checked mostra a navegação que vem depois deste campo.
+           O menu permanece aberto após clicar numa âncora; use Menu para fechá-lo. -->
+      <input class="menu-check" type="checkbox" id="menu-check" aria-controls="menu-principal">
+      <label class="menu-toggle" for="menu-check">☰ <span>Menu</span></label>
+      
+      <nav class="nav" id="menu-principal" aria-label="Navegação principal">
         <a href="index.html">Início</a>
         <a href="index.html#sobre">Sobre</a>
         <a href="programacao.html">Programação</a>
@@ -44,8 +50,14 @@
       </div>
     </section>
 
-    <!-- Seção de cards de opções de ingressos -->
-    <section class="section">
+    <!-- MODIFICADO — INGRESSOS EM FORMATO DE TICKET:
+         Os três planos e seus preços foram preservados.
+         Cada ticket tem conteúdo principal e canhoto (ticket-stub).
+         O canhoto usa uma linha pontilhada e círculos nas extremidades,
+         simulando o ponto de destaque de um ingresso de papel.
+         As barras são somente decorativas: não são um código válido.
+         O link Solicitar informações leva ao contato; não simula uma compra. -->
+    <section class="section tickets-section">
       <div class="container">
         <div class="ticket-grid">
           
@@ -58,7 +70,18 @@
               <li>Exibições da data escolhida</li>
               <li>Palestras abertas</li>
             </ul>
-            <button class="btn">Selecionar</button>
+            <!-- NOVO — CANHOTO: a margem automática mantém os três canhotos
+                 alinhados mesmo quando os planos têm quantidades diferentes de itens.
+                 aria-hidden esconde o código decorativo dos leitores de tela. -->
+            <div class="ticket-stub">
+              <div class="ticket-code" aria-hidden="true">
+                <span>SESSÃO 001</span>
+                <span class="barcode"></span>
+                <span>SPT<br>2026</span>
+              </div>
+              <!-- Sem sistema de vendas: este link abre a área de contato. -->
+              <a class="btn" href="#contato">Solicitar informações</a>
+            </div>
           </article>
           
           <!-- A classe 'featured' destaca visualmente a melhor opção de compra -->
@@ -72,7 +95,18 @@
               <li>Workshop à escolha</li>
               <li>Cerimônia de premiação</li>
             </ul>
-            <button class="btn">Selecionar</button>
+            <!-- NOVO — CANHOTO: a margem automática mantém os três canhotos
+                 alinhados mesmo quando os planos têm quantidades diferentes de itens.
+                 aria-hidden esconde o código decorativo dos leitores de tela. -->
+            <div class="ticket-stub">
+              <div class="ticket-code" aria-hidden="true">
+                <span>SESSÃO 002</span>
+                <span class="barcode"></span>
+                <span>SPT<br>2026</span>
+              </div>
+              <!-- Sem sistema de vendas: este link abre a área de contato. -->
+              <a class="btn" href="#contato">Solicitar informações</a>
+            </div>
           </article>
           
           <article class="ticket">
@@ -85,7 +119,18 @@
               <li>Encontro com convidados</li>
               <li>Kit oficial do festival</li>
             </ul>
-            <button class="btn">Selecionar</button>
+            <!-- NOVO — CANHOTO: a margem automática mantém os três canhotos
+                 alinhados mesmo quando os planos têm quantidades diferentes de itens.
+                 aria-hidden esconde o código decorativo dos leitores de tela. -->
+            <div class="ticket-stub">
+              <div class="ticket-code" aria-hidden="true">
+                <span>SESSÃO 003</span>
+                <span class="barcode"></span>
+                <span>SPT<br>2026</span>
+              </div>
+              <!-- Sem sistema de vendas: este link abre a área de contato. -->
+              <a class="btn" href="#contato">Solicitar informações</a>
+            </div>
           </article>
           
         </div>
@@ -115,13 +160,17 @@
           <span class="eyebrow">Fale com a equipe</span>
           <h2 class="section-title">CONTATO</h2>
           <div class="contact-list">
-            <p><strong>E-mail</strong><br>contato@festivalspotlight.com.br</p>
+            <p><strong>E-mail</strong><br><a href="mailto:contato@festivalspotlight.com.br">contato@festivalspotlight.com.br</a></p>
             <p><strong>Local</strong><br>Cine Belas Artes · São Paulo, SP</p>
             <p><strong>Atendimento</strong><br>Segunda a sexta, das 10h às 18h</p>
           </div>
         </div>
         
-        <!-- Formulário que interage com o script abaixo para feedback em tempo real -->
+        <!-- MODIFICADO — CONTATO SEM JAVASCRIPT:
+             O projeto não possui servidor de envio. Os campos ficam como demonstração
+             visual e o botão fica desabilitado para não informar um envio inexistente.
+             Para envio real, configure um serviço de formulários ou backend.
+             O link de e-mail ao lado pode abrir o aplicativo de e-mail do visitante. -->
         <form class="contact-form">
           <div class="field">
             <label for="nome">Nome</label>
@@ -140,10 +189,10 @@
             <textarea id="mensagem" name="mensagem" required></textarea>
           </div>
           <div class="field full">
-            <button class="btn" type="submit">Enviar mensagem</button>
+            <button class="btn" type="submit" disabled>Envio indisponível</button>
           </div>
-          <!-- O atributo 'aria-live' avisa leitores de tela quando o conteúdo da tag sofrer alterações dinâmicas -->
-          <p class="form-message" aria-live="polite"></p>
+          <!-- Aviso fixo: não há mais confirmação simulada de envio. -->
+          <p class="form-message">Formulário demonstrativo, sem envio de mensagens. Para contato, utilize o e-mail informado.</p>
         </form>
       </div>
     </section>
@@ -171,34 +220,5 @@
       <p class="copyright">© 2026 Spotlight — Festival de Cinema Independente</p>
     </div>
   </footer>
-
-  <!-- LÓGICA JAVASCRIPT -->
-  <script>
-    const menuButton = document.querySelector('.menu-toggle');
-    const nav = document.querySelector('.nav');
-
-    // 1. Gerencia o menu mobile: alterna a visibilidade ao clicar no botão e fecha automaticamente ao clicar em um link
-    menuButton?.addEventListener('click', () => {
-      const open = nav.classList.toggle('open');
-      menuButton.setAttribute('aria-expanded', String(open));
-      menuButton.textContent = open ? '×' : '☰';
-    });
-
-    document.querySelectorAll('.nav a').forEach(link => {
-      link.addEventListener('click', () => {
-        nav.classList.remove('open');
-        menuButton?.setAttribute('aria-expanded', 'false');
-        if (menuButton) menuButton.textContent = '☰';
-      });
-    });
-
-    // 2. Intercepta o envio do formulário para exibir uma mensagem de sucesso sem recarregar a página
-    document.querySelector('.contact-form')?.addEventListener('submit', event => {
-      event.preventDefault(); // Evita o comportamento padrão do HTML (recarregar a página)
-      const message = document.querySelector('.form-message');
-      if (message) message.textContent = 'Mensagem enviada! Em breve entraremos em contato.';
-      event.currentTarget.reset(); // Limpa os campos preenchidos
-    });
-  </script>
 </body>
 </html>
