@@ -1,0 +1,190 @@
+# 🎬 Spotlight — Festival de Cinema Independente
+
+Site desenvolvido como parte de um projeto da **Fdevs, da Uppercase de Barra Bonita**, com o objetivo de praticar a criação de um site utilizando **HTML e CSS, sem JavaScript**.
+
+A proposta foi criar um festival fictício de cinema independente e desenvolver suas páginas, buscando uma identidade visual própria e relacionada ao universo do cinema.
+
+## Objetivo do projeto
+
+O desafio era colocar em prática os conhecimentos de HTML e CSS, trabalhando a estrutura das páginas, a organização do conteúdo, a navegação e a adaptação para diferentes tamanhos de tela.
+
+Além disso, quis explorar elementos que dessem personalidade ao site, como claquetes, películas e ingressos de cinema, mantendo uma aparência consistente entre as páginas.
+
+## Uso de inteligência artificial
+
+**Utilizei inteligência artificial como apoio em partes específicas do projeto. Isso não significa que o projeto inteiro foi feito com IA.**
+
+A IA foi utilizada para gerar algumas imagens de capa, visualizar ideias de design e ajudar na compreensão e implementação de elementos que eu ainda não sabia construir sozinho.
+
+Meu objetivo era dar uma identidade visual única ao Spotlight. Com os conhecimentos que eu tinha naquele momento, alguns desses elementos seriam difíceis de desenvolver. Por isso, utilizei a orientação da IA para entender como combinar HTML e CSS para chegar ao resultado desejado.
+
+Esse apoio envolveu explicações, sugestões visuais e trechos de código. A participação da IA não ficou limitada à geração de imagens.
+
+### Imagens de capa
+
+Gerei algumas imagens de capa com IA para criar uma ambientação relacionada ao cinema e combinar com as cores do site.
+
+Também utilizei prévias geradas com IA para comparar ideias antes de aplicá-las ao projeto. Essas imagens serviram como referência visual; o conteúdo e a estrutura das páginas continuam organizados em HTML e CSS.
+
+### Ingressos em formato de tickets
+
+Na página de ingressos, utilizei a ajuda da IA para transformar os cards dos planos em tickets de cinema.
+
+O que foi feito:
+
+- Organização do nome, preço, benefícios e canhoto no HTML.
+- Uso de `::before` e `::after` para simular recortes circulares nas laterais.
+- Criação de uma linha pontilhada para separar o conteúdo principal do canhoto.
+- Uso de um gradiente repetido para criar barras decorativas.
+- Manutenção do destaque em vinho no plano central.
+
+A IA ajudou com o código e com a explicação de como esses recursos funcionam.
+
+As barras são apenas decorativas e não representam um código válido. O site não realiza pagamentos nem emite ingressos.
+
+### Palestrantes em uma fita de cinema
+
+Na seção de palestrantes, utilizei a orientação da IA para criar uma apresentação inspirada em uma película de filme.
+
+O que foi feito:
+
+- Cards retangulares e horizontais.
+- Imagem do palestrante à esquerda.
+- Nome, profissão e descrição à direita.
+- Uso de `display: flex` para organizar imagem e informações.
+- Furos nas bordas da película feitos com pseudo-elementos e `repeating-linear-gradient`.
+- Rolagem horizontal em telas menores, sem JavaScript.
+
+A ajuda da IA foi utilizada para entender e implementar essa organização, além de ajustar a altura da seção para deixá-la mais compacta.
+
+As imagens dos palestrantes estão como espaços reservados e podem ser substituídas por fotografias.
+
+### Destaques em formato de claquetes
+
+Na seção de destaques, escolhi utilizar cards inspirados em claquetes para reforçar a identidade cinematográfica do site.
+
+O que foi feito:
+
+- Cards retangulares com ícone, numeração, título e descrição.
+- Duas faixas superiores criadas com `::before` e `::after`.
+- Listras diagonais feitas com `repeating-linear-gradient`.
+- Inclinação da faixa superior com `transform: rotate()`.
+- Efeito ao passar o mouse, com elevação, sombra e mudança na cor do ícone.
+
+A IA ajudou na elaboração do código e na explicação dessas propriedades, pois eu ainda não tinha domínio de como criar esse efeito.
+
+Os comentários no HTML e no CSS explicam as alterações para facilitar o entendimento e o estudo.
+
+## O que é o Spotlight Festival?
+
+O **Spotlight** é um festival fictício de cinema independente, criado como tema deste projeto educacional.
+
+Sua proposta é valorizar histórias originais, novas vozes e produções audiovisuais fora do circuito comercial, reunindo exibições, palestras, workshops e premiações.
+
+O nome Spotlight está relacionado à ideia de colocar histórias e realizadores em evidência, representada pela frase:
+
+> Toda história merece os holofotes.
+
+## Identidade visual
+
+A identidade visual foi pensada para transmitir a atmosfera do cinema, utilizando:
+
+- Tons de vinho, preto, vermelho e creme.
+- Títulos com fonte serifada.
+- Textos com uma fonte simples e legível.
+- Elementos inspirados em claquetes, películas e tickets.
+- Imagens relacionadas ao ambiente cinematográfico.
+
+A intenção foi manter uma aparência elegante, com elementos temáticos integrados ao layout.
+
+## Páginas do site
+
+### Início — index.html
+
+Apresenta o festival, sua proposta, a imagem principal e os quatro destaques em formato de claquete:
+
+- Produções Independentes.
+- Cineastas Convidados.
+- Premiações.
+- Experiência Cinematográfica.
+
+Também possui uma chamada para acessar a página de ingressos.
+
+### Programação — programacao.html
+
+Apresenta a agenda ilustrativa do dia principal do evento, com horários, atividades e locais.
+
+Também reúne os palestrantes em uma fita de cinema, com imagem e informações lado a lado.
+
+### Ingressos e contato — ingressos.html
+
+Apresenta três opções ilustrativas:
+
+- Ingresso Diário.
+- Passaporte Festival.
+- Spotlight VIP.
+
+A página também contém os patrocinadores fictícios e a área de contato.
+
+## 🎨 Tecnologias utilizadas
+
+- **HTML5:** estrutura, conteúdo, links e campos do formulário.
+- **CSS3:** cores, tipografia, layout, responsividade e efeitos visuais.
+- **SVG e imagens:** ícones e recursos visuais.
+- **Google Fonts:** fontes Cormorant Garamond e Inter.
+
+A versão atual não utiliza JavaScript.
+
+O menu para telas menores funciona com um checkbox, um label e o seletor `:checked` do CSS.
+
+## Estrutura do projeto
+
+- `index.html`
+- `programacao.html`
+- `ingressos.html`
+- `README.md`
+- `LEIA-ME.txt`
+- `css/`
+  - `style.css`
+- `assets/`
+  - `images/`
+    - `hero-cinema.png`
+    - `claquete.png`
+    - `foto-placeholder.svg`
+
+## Como visualizar
+
+1. Baixe e extraia os arquivos do projeto.
+2. Abra o arquivo `index.html` em um navegador.
+3. Utilize o menu para navegar entre as páginas.
+
+Não é necessário instalar dependências.
+
+As fontes do Google Fonts precisam de conexão com a internet. Caso não carreguem, o navegador utiliza as fontes alternativas definidas no CSS.
+
+## Limitações
+
+Este é um projeto educacional de apresentação visual.
+
+- O festival e as informações de compra são fictícios.
+- Não há pagamento, reserva ou emissão de ingressos.
+- Os links dos planos direcionam para a área de contato.
+- O formulário é demonstrativo e não envia mensagens.
+- Alguns links ainda não possuem destino final.
+- As fotos dos palestrantes estão reservadas para substituição.
+
+## Aprendizados
+
+O desenvolvimento do Spotlight foi uma oportunidade de praticar HTML e CSS e entender como elementos simples podem ganhar uma aparência relacionada ao tema do projeto.
+
+A inteligência artificial foi utilizada como ferramenta de apoio nesse processo, ajudando com ideias, explicações e código em pontos específicos que eu ainda não dominava.
+
+O objetivo foi explorar novos recursos e entender como aplicá-los à identidade visual que eu queria construir para o site.
+
+
+> 🚧 **Projeto em desenvolvimento** — algumas páginas e funcionalidades ainda estão sendo ajustadas e podem sofrer alterações.
+
+
+- ## 👩‍💻 Autoria
+ 
+Desenvolvido por **Amanda Frolini**, estudante do curso de Desenvolvimento de Software Multiplataforma (DSM) na Fatec Jahu.
