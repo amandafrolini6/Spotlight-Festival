@@ -310,56 +310,56 @@ button {
   padding-bottom: 4px; 
 }
 
-/* ==========================================================================
-   7. SEÇÃO DE DESTAQUES (HIGHLIGHTS)
-   ========================================================================== */
-.highlights { 
-  background: var(--white); 
+/* 7. MODIFICADO — DESTAQUES COMO CLAQUETES
+   O fundo creme e a tipografia original continuam. A grade usa quatro colunas,
+   gap de 24px e área máxima de 1200px. Tablet e celular são ajustados ao final. */
+.highlights { background: #F5F1E9; padding-top: 60px; }
+.highlights .container { max-width: 1200px; }
+.highlights .section-heading { margin-bottom: 42px; }
+.highlight-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+
+/* O padding superior reserva lugar para as duas faixas da claquete.
+   position:relative faz o card ser a referência das faixas e do número.
+   min-height permite crescer sem esconder as descrições. */
+.highlight-card {
+  position: relative;
+  min-height: 290px;
+  padding: 84px 28px 28px;
+  background: white;
+  border: 1px solid #d8ceca;
+  border-radius: 0;
+  transition: transform .2s, box-shadow .2s;
 }
 
-.highlight-grid { 
-  display: grid; 
-  grid-template-columns: repeat(4, 1fr); 
-  gap: 1px; 
-  background: var(--line); 
-  border: 1px solid var(--line); 
+/* A faixa inferior é reta. A superior gira -4 graus a partir da esquerda.
+   repeating-linear-gradient desenha listras diagonais sem imagem externa.
+   Os pseudo-elementos são decoração; não contêm informação necessária. */
+.highlight-card::before, .highlight-card::after {
+  content: '';
+  position: absolute;
+  left: -1px;
+  right: -1px;
+  height: 24px;
+  background: repeating-linear-gradient(135deg, #111010 0px, #111010 24px, #F5F1E9 24px, #F5F1E9 48px);
+  border: 1px solid #111010;
 }
+.highlight-card::before { top: 0; transform: rotate(-4deg); transform-origin: left center; }
+.highlight-card::after { top: 28px; }
+.ticket-number { position: absolute; top: 79px; right: 28px; color: var(--muted); font-size: 12px; letter-spacing: 2px; }
 
-.highlight-card { 
-  background: var(--white); 
-  padding: 36px 28px; 
-}
+/* A linha contínua separa o ícone do texto, diferenciando dos tickets de preço. */
+.highlight-card .icon-box { height: 52px; margin-bottom: 20px; padding-bottom: 16px; border-bottom: 1px solid #d8ceca; color: var(--wine); transition: color .2s; }
+.highlight-card .icon-box svg { width: 30px; height: 30px; fill: none; stroke: currentColor; stroke-width: 1.6; }
+.highlight-card h3 { font: 700 22px/1.2 var(--serif); color: var(--wine-dark); }
+.highlight-card p { margin-top: 9px; color: var(--muted); font-size: 16px; }
 
-.icon-box { 
-  width: 45px; 
-  height: 45px; 
-  display: grid; 
-  place-items: center; 
-  border: 1px solid var(--red); 
-  color: var(--red); 
-  margin-bottom: 24px; 
+/* Hover somente em dispositivos com mouse, evitando efeito preso no celular. */
+@media (hover: hover) {
+  .highlight-card:hover { transform: translateY(-6px); box-shadow: 0 12px 24px rgba(74,15,29,.15); }
+  .highlight-card:hover .icon-box { color: var(--red); }
 }
-
-.icon-box svg { 
-  width: 22px; 
-  height: 22px; 
-  fill: none; 
-  stroke: currentColor; 
-  stroke-width: 1.6; 
-}
-
-.highlight-card h3, 
-.schedule-card h3 { 
-  font: 700 1.35rem/1.2 var(--serif); 
-  color: var(--wine-dark); 
-}
-
-.highlight-card p, 
-.schedule-card p { 
-  margin-top: 9px; 
-  color: var(--muted); 
-  font-size: .88rem; 
-}
+.schedule-card h3 { font: 700 1.35rem/1.2 var(--serif); color: var(--wine-dark); }
+.schedule-card p { margin-top: 9px; color: var(--muted); font-size: .88rem; }
 
 /* 8. PROGRAMAÇÃO E AGENDA */
 .schedule-grid { 
@@ -441,118 +441,70 @@ button {
   text-transform: uppercase; 
 }
 
-/* 9. PALESTRANTES */
-.speakers { 
-  background: white; 
-}
+/* 9. MODIFICADO — PELÍCULA MAIS BAIXA E PALESTRANTES HORIZONTAIS
+   A seção perdeu parte do espaço vertical. A faixa tem tamanho mínimo porque
+   três fotos e três descrições não cabem legíveis numa tela de celular. */
+.speakers { background: white; padding: 56px 0; }
+.speakers .container { max-width: 1200px; }
+.speakers .section-heading { margin-bottom: 28px; }
+.film-scroll { overflow-x: auto; padding-bottom: 10px; }
+.film-scroll:focus-visible { outline: 2px solid var(--red); outline-offset: 4px; }
+.film-strip { position: relative; display: flex; gap: 16px; min-width: 1120px; padding: 34px 16px; background: var(--black-soft); }
 
-.speaker-grid { 
-  display: grid; 
-  grid-template-columns: repeat(3, 1fr); 
-  gap: 24px; 
+/* Furos da película: retângulos creme repetidos nas bordas preta superior/inferior.
+   São fundos CSS, então não exigem imagens nem JavaScript. */
+.film-strip::before, .film-strip::after {
+  content: ''; position: absolute; left: 0; right: 0; height: 12px;
+  background: repeating-linear-gradient(to right, transparent 0px, transparent 12px, #F5F1E9 12px, #F5F1E9 28px, transparent 28px, transparent 40px);
 }
+.film-strip::before { top: 10px; }
+.film-strip::after { bottom: 10px; }
 
-.speaker-card { 
-  background: var(--cream); 
-  padding: 34px; 
-  border-top: 3px solid var(--wine); 
-}
+/* display:flex coloca imagem e legenda em linha.
+   flex:1 distribui a largura igualmente entre os três quadros.
+   Cantos retos preservam a aparência de fotograma. */
+.film-frame { display: flex; flex: 1; min-width: 0; min-height: 190px; background: var(--cream); border-radius: 0; }
+.film-frame img { width: 35%; height: auto; align-self: stretch; object-fit: cover; }
+.film-caption { width: 65%; padding: 18px 16px; }
+.film-caption h3 { font: 700 24px/1.1 var(--serif); color: var(--wine-dark); }
+.film-caption .film-role { margin: 8px 0; color: var(--red); font-size: 11px; font-weight: 700; text-transform: uppercase; }
+.film-caption p { font-size: 13px; line-height: 1.5; color: var(--muted); }
+.film-hint { display: none; margin-top: 8px; font-size: 14px; color: var(--wine); }
 
-.speaker-initial { 
-  width: 58px; 
-  height: 58px; 
-  display: grid; 
-  place-items: center; 
-  border-radius: 50%; 
-  background: var(--wine); 
-  color: white; 
-  font: 600 1.45rem var(--serif); 
-  margin-bottom: 23px; 
-}
+/* 10. MODIFICADO — TICKETS DE CINEMA
+   A seção recebe fundo creme para que os círculos do canhoto simulem recortes.
+   Os planos mantêm seus valores e benefícios. O plano central continua vinho. */
+.tickets-section { background: #F5F1E9; }
+.ticket-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; align-items: stretch; }
+.ticket { display: flex; flex-direction: column; background: white; padding: 32px 28px 0; border: 1px solid var(--line); }
+.ticket.featured { background: var(--wine-dark); color: white; }
+.ticket-label { color: var(--red); font-size: .7rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
+/* Vermelho mais claro para que o rótulo tenha contraste no fundo vinho. */
+.featured .ticket-label { color: #ff8996; }
+.ticket h2 { margin: 10px 0 20px; font: 700 2rem/1.1 var(--serif); }
+.price { font: 700 2.8rem var(--serif); }
+.price small { font: 500 .8rem var(--sans); }
+.benefits { list-style: none; margin: 24px 0 28px; flex-grow: 1; }
+.benefits li { border-top: 1px solid rgba(74,15,29,.12); padding: 12px 0; font-size: .86rem; }
+.featured .benefits li { border-color: rgba(255,255,255,.18); }
+.benefits li::before { content: '✓'; color: var(--red); margin-right: 9px; font-weight: 700; }
+.featured .benefits li::before { color: #ff8996; }
 
-.speaker-card h3 { 
-  font: 700 1.45rem var(--serif); 
-}
+/* O canhoto vai até as bordas usando margens negativas iguais ao padding do ticket.
+   border-top cria a linha de destaque. margin-top:auto alinha os três canhotos. */
+.ticket-stub { position: relative; margin: auto -28px 0; padding: 22px 28px 28px; border-top: 1px dashed currentColor; }
 
-.speaker-role { 
-  color: var(--red); 
-  font-size: .74rem; 
-  font-weight: 700; 
-  text-transform: uppercase; 
-  letter-spacing: .08em; 
-}
+/* Os círculos ficam metade dentro e metade fora nas duas pontas da linha.
+   A cor deve acompanhar o fundo da seção para manter a ilusão de recorte. */
+.ticket-stub::before, .ticket-stub::after { content: ''; position: absolute; top: -14px; width: 28px; height: 28px; border-radius: 50%; background: #F5F1E9; }
+.ticket-stub::before { left: -15px; }
+.ticket-stub::after { right: -15px; }
+.ticket-code { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 20px; font-size: 10px; line-height: 1.4; letter-spacing: 1px; }
 
-.speaker-card p:last-child { 
-  color: var(--muted); 
-  font-size: .88rem; 
-  margin-top: 12px; 
-}
-
-/* 10. INGRESSOS E PREÇOS */
-.ticket-grid { 
-  display: grid; 
-  grid-template-columns: repeat(3, 1fr); 
-  gap: 22px; 
-  align-items: stretch; 
-}
-
-.ticket { 
-  background: white; 
-  padding: 38px 32px; 
-  border: 1px solid var(--line); 
-  display: flex; 
-  flex-direction: column; 
-}
-
-.ticket.featured { 
-  background: var(--wine-dark); 
-  color: white; 
-  transform: translateY(-10px); 
-}
-
-.ticket-label { 
-  color: var(--red); 
-  font-size: .7rem; 
-  font-weight: 700; 
-  letter-spacing: .14em; 
-  text-transform: uppercase; 
-}
-
-.ticket h2 { 
-  margin: 10px 0 20px; 
-  font: 700 2rem var(--serif); 
-}
-
-.price { 
-  font: 700 2.8rem var(--serif); 
-}
-
-.price small { 
-  font: 500 .8rem var(--sans); 
-}
-
-.benefits { 
-  list-style: none; 
-  margin: 28px 0 34px; 
-  flex-grow: 1; 
-}
-
-.benefits li { 
-  border-top: 1px solid rgba(74,15,29,.12); 
-  padding: 12px 0; 
-  font-size: .86rem; 
-}
-
-.featured .benefits li { 
-  border-color: rgba(255,255,255,.12); 
-}
-
-.benefits li::before { 
-  content: '✓'; 
-  color: var(--red); 
-  margin-right: 9px; 
-  font-weight: 700; 
-}
+/* Código de barras decorativo: não serve para pagamento, leitura ou validação.
+   currentColor faz as barras ficarem claras no plano vinho e escuras nos demais. */
+.barcode { display: block; width: 120px; height: 32px; background: repeating-linear-gradient(to right, currentColor 0px, currentColor 2px, transparent 2px, transparent 4px, currentColor 4px, currentColor 5px, transparent 5px, transparent 8px); }
+.ticket-stub .btn { width: 100%; padding: 10px 12px; font-size: 11px; letter-spacing: .07em; }
 
 /* 11. PATROCINADORES E CONTATO */
 .sponsors { 
@@ -694,7 +646,7 @@ button {
 /* 13. MEDIA QUERIES (RESPONSIVIDADE) */
 @media (max-width: 960px) {
   .nav, 
-  .site-header > .socials { 
+  .site-header .socials { 
     display: none; 
   }
   
@@ -706,7 +658,7 @@ button {
     display: block; 
   }
   
-  .nav.open { 
+  .menu-check:checked ~ .nav { 
     display: flex; 
     width: 100%; 
     flex-direction: column; 
@@ -758,7 +710,6 @@ button {
   
   .about-grid, 
   .schedule-grid, 
-  .speaker-grid, 
   .contact-grid { 
     grid-template-columns: 1fr; 
   }
@@ -798,4 +749,43 @@ button {
   .field.full { 
     grid-column: auto; 
   }
+}
+
+
+/* 14. MODIFICADO — MENU HTML/CSS E NAVEGAÇÃO POR TECLADO
+   O checkbox fica visualmente reduzido, mas continua acessível com Tab.
+   Não usamos display:none nele no celular porque impediria o foco.
+   O seletor :checked, na media query acima, mostra os links. */
+.menu-check { position: absolute; width: 1px; height: 1px; opacity: 0; pointer-events: none; }
+.menu-toggle { font-size: 18px; }
+.menu-check:focus-visible + .menu-toggle { outline: 2px solid white; outline-offset: 5px; }
+@media (min-width: 961px) { .menu-check { display: none; } }
+
+/* 15. AJUSTES RESPONSIVOS DAS SEÇÕES ALTERADAS
+   A fita continua horizontal; a página em si não precisa rolar lateralmente.
+   Abaixo de 720px cada quadro mantém 320px, com foto à esquerda e texto à direita.
+   Os destaques já passam para duas/uma coluna nas media queries originais. */
+@media (max-width: 1200px) { .film-hint { display: block; } }
+@media (max-width: 960px) {
+  .nav-wrap { gap: 20px; }
+  .menu-toggle { margin-left: auto; cursor: pointer; }
+  .ticket-grid { grid-template-columns: 1fr; max-width: 620px; margin-inline: auto; }
+}
+@media (max-width: 720px) {
+  .highlights { padding-top: 44px; }
+  .speakers { padding: 44px 0; }
+  .film-strip { min-width: 1024px; }
+  .film-caption { padding: 16px 12px; }
+  .film-caption h3 { font-size: 22px; }
+  .contact-list a { overflow-wrap: anywhere; }
+}
+
+/* Cabeçalho fixo: deixa espaço ao navegar para Sobre, Palestrantes e Contato. */
+section[id] { scroll-margin-top: 110px; }
+.btn:disabled { background: #75686b; cursor: not-allowed; }
+/* Desliga a animação dos cards para quem prefere movimento reduzido. */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .highlight-card { transition: none; }
+  .highlight-card:hover { transform: none; }
 }
