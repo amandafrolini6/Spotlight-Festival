@@ -130,8 +130,6 @@ A página também contém os patrocinadores fictícios e a área de contato.
 
 - **HTML5:** estrutura, conteúdo, links e campos do formulário.
 - **CSS3:** cores, tipografia, layout, responsividade e efeitos visuais.
-- **SVG e imagens:** ícones e recursos visuais.
-- **Google Fonts:** fontes Cormorant Garamond e Inter.
 
 A versão atual não utiliza JavaScript.
 
