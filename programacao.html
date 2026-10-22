@@ -36,6 +36,17 @@
         <a href="ingressos.html">Ingressos</a>
         <a href="ingressos.html#contato">Contato</a>
       </nav>
+
+      <!-- Mesma estrutura do início para manter o menu na mesma posição. -->
+      <div class="socials" aria-label="Redes sociais">
+        <!-- O uso de SVG inline garante que os ícones fiquem nítidos em qualquer resolução e carreguem instantaneamente, sem requisições extras -->
+        <a href="#" aria-label="Instagram">
+          <svg viewBox="0 0 24 24"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7m11 1.5a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5M12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10m0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6z"/></svg>
+        </a>
+        <a href="#" aria-label="YouTube">
+          <svg viewBox="0 0 24 24"><path d="M23 7s-.2-1.4-.8-2c-.8-.8-1.6-.8-2-.9C17.4 4 13.2 4 12 4s-5.4 0-8.2.1c-.4.1-1.2.1-2 .9C1.2 5.6 1 7 1 7S.8 8.6.8 10.2v1.6C.8 13.4 1 15 1 15s.2 1.4.8 2c.8.8 1.8.8 2.3.9 1.7.2 6.7.1 7.9.1s5.4 0 8.2-.1c.4-.1 1.2-.1 2-.9.6-.6.8-2 .8-2s.2-1.6.2-3.2v-1.6C23.2 8.6 23 7 23 7M9.6 14.5v-5l6.4 2.5-6.4 2.5z"/></svg>
+        </a>
+      </div>
     </div>
   </header>
 
@@ -111,13 +122,8 @@
       </div>
     </section>
 
-    <!-- MODIFICADO — PALESTRANTES EM CARDS HORIZONTAIS:
-         A película foi mantida, mas cada quadro agora usa display:flex.
-         A imagem fica à esquerda e o bloco film-caption fica à direita.
-         A foto ocupa 35% da largura e o texto 65%, com altura mínima de 190px.
-         A altura pode aumentar caso o texto precise de mais espaço.
-         Os cards têm cantos retos. Em telas menores, a película permite rolagem
-         horizontal, mantendo foto e texto lado a lado e sem JavaScript. -->
+    <!-- A fita contém dois grupos iguais: o segundo mantém a passagem contínua.
+         A cópia é apenas visual e fica oculta dos leitores de tela. -->
     <section class="section speakers" id="palestrantes">
       <div class="container">
         <div class="section-heading center">
@@ -125,10 +131,12 @@
           <h2 class="section-title">PALESTRANTES</h2>
         </div>
 
-        <!-- NOVO: tabindex permite acessar a área de rolagem pelo teclado. -->
+        <!-- Checkbox e label permitem pausar sem usar JavaScript. -->
+        <input class="film-pause" type="checkbox" id="pausar-pelicula">
+        <label class="film-control" for="pausar-pelicula">Pausar animação da fita</label>
         <div class="film-scroll" tabindex="0" role="region" aria-label="Palestrantes em fita de cinema">
           <div class="film-strip">
-            <!-- Cada article é um quadro retangular: imagem primeiro, informações depois. -->
+            <div class="film-group">
             <article class="film-frame">
               <!-- FOTO: troque foto-placeholder.svg por marina-reis.jpg quando tiver a foto.
                    Coloque a foto na pasta assets/images. -->
@@ -159,10 +167,43 @@
                 <p>Pesquisa luz, memória e linguagem visual em produções autorais.</p>
               </div>
             </article>
+            </div>
+            <!-- Repetição decorativa: cria um loop sem espaços ou saltos. -->
+            <div class="film-group film-copy" aria-hidden="true">
+            <article class="film-frame">
+              <!-- FOTO: troque foto-placeholder.svg por marina-reis.jpg quando tiver a foto.
+                   Coloque a foto na pasta assets/images. -->
+              <img src="assets/images/diretora.jpg" alt="Espaço reservado para a foto de Marina Reis" loading="lazy" width="400" height="400">
+              <div class="film-caption">
+                <h3>Marina Reis</h3>
+                <p class="film-role">Diretora e roteirista</p>
+                <p>Realizadora premiada por narrativas urbanas e histórias de identidade.</p>
+              </div>
+            </article>
+
+            <article class="film-frame">
+              <!-- FOTO: troque foto-placeholder.svg por lucas-costa.jpg. -->
+              <img src="assets/images/produtor.png" alt="Espaço reservado para a foto de Lucas Costa" loading="lazy" width="400" height="400">
+              <div class="film-caption">
+                <h3>Lucas Costa</h3>
+                <p class="film-role">Produtor audiovisual</p>
+                <p>Especialista em viabilização e distribuição de projetos independentes.</p>
+              </div>
+            </article>
+
+            <article class="film-frame">
+              <!-- FOTO: troque foto-placeholder.svg por bianca-alves.jpg. -->
+              <img src="assets/images/fotografia.jpg" alt="Espaço reservado para a foto de Bianca Alves" loading="lazy" width="400" height="400">
+              <div class="film-caption">
+                <h3>Bianca Alves</h3>
+                <p class="film-role">Diretora de fotografia</p>
+                <p>Pesquisa luz, memória e linguagem visual em produções autorais.</p>
+              </div>
+            </article>
+            </div>
           </div>
         </div>
-        <!-- A dica aparece abaixo de 1200px, quando a película pode exigir rolagem. -->
-        <p class="film-hint">Deslize para ver os palestrantes →</p>
+        <p class="film-hint">A fita passa automaticamente. Pause para ler com calma.</p>
       </div>
     </section>
 

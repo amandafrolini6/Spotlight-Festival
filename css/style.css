@@ -441,24 +441,35 @@ button {
   text-transform: uppercase; 
 }
 
-/* 9. MODIFICADO — PELÍCULA MAIS BAIXA E PALESTRANTES HORIZONTAIS
-   A seção perdeu parte do espaço vertical. A faixa tem tamanho mínimo porque
-   três fotos e três descrições não cabem legíveis numa tela de celular. */
+/* 9. PALESTRANTES — PELÍCULA EM MOVIMENTO (somente HTML e CSS)
+   Cada grupo tem a mesma largura. Mover metade da faixa completa faz a
+   cópia ocupar exatamente a posição inicial, sem salto ao reiniciar. */
 .speakers { background: white; padding: 56px 0; }
 .speakers .container { max-width: 1200px; }
 .speakers .section-heading { margin-bottom: 28px; }
-.film-scroll { overflow-x: auto; padding-bottom: 10px; }
+.film-scroll { overflow: hidden; background: var(--black-soft); }
 .film-scroll:focus-visible { outline: 2px solid var(--red); outline-offset: 4px; }
-.film-strip { position: relative; display: flex; gap: 16px; min-width: 1120px; padding: 34px 16px; background: var(--black-soft); }
+.film-strip { display: flex; width: max-content; animation: film-passing 36s linear infinite; }
+.film-group { position: relative; display: flex; flex: 0 0 1200px; width: 1200px; gap: 16px; padding: 34px 8px; background: var(--black-soft); }
+@keyframes film-passing {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+/* A pausa funciona com mouse, teclado ou toque no checkbox. */
+.film-pause { accent-color: var(--wine); margin: 0 6px 16px 0; }
+.film-control { cursor: pointer; font-size: 14px; color: var(--wine); }
+.film-scroll:hover .film-strip,
+.film-scroll:focus-within .film-strip,
+.film-pause:checked ~ .film-scroll .film-strip { animation-play-state: paused; }
 
 /* Furos da película: retângulos creme repetidos nas bordas preta superior/inferior.
    São fundos CSS, então não exigem imagens nem JavaScript. */
-.film-strip::before, .film-strip::after {
+.film-group::before, .film-group::after {
   content: ''; position: absolute; left: 0; right: 0; height: 12px;
   background: repeating-linear-gradient(to right, transparent 0px, transparent 12px, #F5F1E9 12px, #F5F1E9 28px, transparent 28px, transparent 40px);
 }
-.film-strip::before { top: 10px; }
-.film-strip::after { bottom: 10px; }
+.film-group::before { top: 10px; }
+.film-group::after { bottom: 10px; }
 
 /* display:flex coloca imagem e legenda em linha.
    flex:1 distribui a largura igualmente entre os três quadros.
@@ -469,7 +480,7 @@ button {
 .film-caption h3 { font: 700 24px/1.1 var(--serif); color: var(--wine-dark); }
 .film-caption .film-role { margin: 8px 0; color: var(--red); font-size: 11px; font-weight: 700; text-transform: uppercase; }
 .film-caption p { font-size: 13px; line-height: 1.5; color: var(--muted); }
-.film-hint { display: none; margin-top: 8px; font-size: 14px; color: var(--wine); }
+.film-hint { display: block; margin-top: 8px; font-size: 14px; color: var(--wine); }
 
 /* 10. MODIFICADO — TICKETS DE CINEMA
    A seção recebe fundo creme para que os círculos do canhoto simulem recortes.
@@ -774,7 +785,7 @@ button {
 @media (max-width: 720px) {
   .highlights { padding-top: 44px; }
   .speakers { padding: 44px 0; }
-  .film-strip { min-width: 1024px; }
+  .film-group { flex-basis: 1040px; width: 1040px; }
   .film-caption { padding: 16px 12px; }
   .film-caption h3 { font-size: 22px; }
   .contact-list a { overflow-wrap: anywhere; }
@@ -789,3 +800,14 @@ section[id] { scroll-margin-top: 110px; }
   .highlight-card { transition: none; }
   .highlight-card:hover { transform: none; }
 }
+/* Preferência de acessibilidade: sem movimento, com rolagem manual.
+   Apenas o grupo original permanece visível nesta modalidade. */
+@media (prefers-reduced-motion: reduce) {
+  .film-strip { animation: none; transform: none; }
+  .film-copy, .film-pause, .film-control, .film-hint { display: none; }
+  .film-scroll { overflow-x: auto; }
+}
+
+/* Reserva a largura da barra de rolagem entre páginas para evitar deslocamentos
+   do cabeçalho ao navegar. Os três headers também têm os mesmos elementos. */
+html { overflow-y: scroll; }
