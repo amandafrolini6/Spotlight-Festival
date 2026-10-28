@@ -1,6 +1,6 @@
 # 🎬 Spotlight — Festival de Cinema Independente
 
-Site desenvolvido como parte de um projeto da **Fdevs, da Uppercase de Barra Bonita**, com o objetivo de praticar a criação de um site utilizando **HTML e CSS, sem JavaScript**.
+Site desenvolvido como parte de um projeto da **Fdevs, da Upper de Barra Bonita**, com o objetivo de praticar a criação de um site utilizando **HTML e CSS**.
 
 A proposta foi criar um festival fictício de cinema independente e desenvolver suas páginas, buscando uma identidade visual própria e relacionada ao universo do cinema.
 
@@ -9,71 +9,6 @@ A proposta foi criar um festival fictício de cinema independente e desenvolver 
 O desafio era colocar em prática os conhecimentos de HTML e CSS, trabalhando a estrutura das páginas, a organização do conteúdo, a navegação e a adaptação para diferentes tamanhos de tela.
 
 Além disso, quis explorar elementos que dessem personalidade ao site, como claquetes, películas e ingressos de cinema, mantendo uma aparência consistente entre as páginas.
-
-## Uso de inteligência artificial
-
-**Utilizei inteligência artificial como apoio em partes específicas do projeto. Isso não significa que o projeto inteiro foi feito com IA.**
-
-A IA foi utilizada para gerar algumas imagens de capa, visualizar ideias de design e ajudar na compreensão e implementação de elementos que eu ainda não sabia construir sozinho.
-
-Meu objetivo era dar uma identidade visual única ao Spotlight. Com os conhecimentos que eu tinha naquele momento, alguns desses elementos seriam difíceis de desenvolver. Por isso, utilizei a orientação da IA para entender como combinar HTML e CSS para chegar ao resultado desejado.
-
-Esse apoio envolveu explicações, sugestões visuais e trechos de código. A participação da IA não ficou limitada à geração de imagens.
-
-### Imagens de capa
-
-Gerei algumas imagens de capa com IA para criar uma ambientação relacionada ao cinema e combinar com as cores do site.
-
-Também utilizei prévias geradas com IA para comparar ideias antes de aplicá-las ao projeto. Essas imagens serviram como referência visual; o conteúdo e a estrutura das páginas continuam organizados em HTML e CSS.
-
-### Ingressos em formato de tickets
-
-Na página de ingressos, utilizei a ajuda da IA para transformar os cards dos planos em tickets de cinema.
-
-O que foi feito:
-
-- Organização do nome, preço, benefícios e canhoto no HTML.
-- Uso de `::before` e `::after` para simular recortes circulares nas laterais.
-- Criação de uma linha pontilhada para separar o conteúdo principal do canhoto.
-- Uso de um gradiente repetido para criar barras decorativas.
-- Manutenção do destaque em vinho no plano central.
-
-A IA ajudou com o código e com a explicação de como esses recursos funcionam.
-
-As barras são apenas decorativas e não representam um código válido. O site não realiza pagamentos nem emite ingressos.
-
-### Palestrantes em uma fita de cinema
-
-Na seção de palestrantes, utilizei a orientação da IA para criar uma apresentação inspirada em uma película de filme.
-
-O que foi feito:
-
-- Cards retangulares e horizontais.
-- Imagem do palestrante à esquerda.
-- Nome, profissão e descrição à direita.
-- Uso de `display: flex` para organizar imagem e informações.
-- Furos nas bordas da película feitos com pseudo-elementos e `repeating-linear-gradient`.
-- Rolagem horizontal em telas menores, sem JavaScript.
-
-A ajuda da IA foi utilizada para entender e implementar essa organização, além de ajustar a altura da seção para deixá-la mais compacta.
-
-As imagens dos palestrantes estão como espaços reservados e podem ser substituídas por fotografias.
-
-### Destaques em formato de claquetes
-
-Na seção de destaques, escolhi utilizar cards inspirados em claquetes para reforçar a identidade cinematográfica do site.
-
-O que foi feito:
-
-- Cards retangulares com ícone, numeração, título e descrição.
-- Duas faixas superiores criadas com `::before` e `::after`.
-- Listras diagonais feitas com `repeating-linear-gradient`.
-- Inclinação da faixa superior com `transform: rotate()`.
-- Efeito ao passar o mouse, com elevação, sombra e mudança na cor do ícone.
-
-A IA ajudou na elaboração do código e na explicação dessas propriedades, pois eu ainda não tinha domínio de como criar esse efeito.
-
-Os comentários no HTML e no CSS explicam as alterações para facilitar o entendimento e o estudo.
 
 ## O que é o Spotlight Festival?
 
