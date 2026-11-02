@@ -114,10 +114,6 @@ A inteligência artificial foi utilizada como ferramenta de apoio nesse processo
 
 O objetivo foi explorar novos recursos e entender como aplicá-los à identidade visual que eu queria construir para o site.
 
-
-> 🚧 **Projeto em desenvolvimento** — algumas páginas e funcionalidades ainda estão sendo ajustadas e podem sofrer alterações.
-
-
 - ## 👩‍💻 Autoria
  
 Desenvolvido por **Amanda Frolini**, estudante do curso de Desenvolvimento de Software Multiplataforma (DSM) na Fatec Jahu.
