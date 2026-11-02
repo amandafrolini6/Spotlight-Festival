@@ -177,13 +177,19 @@ button {
   gap: 13px; 
 }
 
-.socials a { 
-  display: grid; 
-  place-items: center; 
-  width: 28px; 
-  height: 28px; 
-  color: #eee; 
+.socials a {
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  color: #eee;
+  transition: color 0.3s ease;
 }
+
+.socials a:hover {
+  color: #ff687b;
+}
+
 
 .socials svg { 
   width: 17px; 
@@ -474,22 +480,64 @@ button {
 /* display:flex coloca imagem e legenda em linha.
    flex:1 distribui a largura igualmente entre os três quadros.
    Cantos retos preservam a aparência de fotograma. */
-.film-frame { display: flex; flex: 1; min-width: 0; min-height: 190px; background: var(--cream); border-radius: 0; }
-.film-frame img { width: 35%; height: auto; align-self: stretch; object-fit: cover; }
-.film-caption { width: 65%; padding: 18px 16px; }
-.film-caption h3 { font: 700 24px/1.1 var(--serif); color: var(--wine-dark); }
-.film-caption .film-role { margin: 8px 0; color: var(--red); font-size: 11px; font-weight: 700; text-transform: uppercase; }
-.film-caption p { font-size: 13px; line-height: 1.5; color: var(--muted); }
-.film-hint { display: block; margin-top: 8px; font-size: 14px; color: var(--wine); }
+.film-frame { 
+  display: flex; 
+  flex: 1; 
+  min-width: 0; 
+  min-height: 190px; 
+  background: var(--cream); 
+  border-radius: 0; }
+
+.film-frame img { 
+  width: 35%;
+  height: auto; 
+  align-self: stretch; 
+  object-fit: cover; }
+
+.film-caption { 
+  width: 65%; 
+  padding: 18px 16px; }
+  
+.film-caption h3 { 
+  font: 700 24px/1.1 var(--serif); 
+  color: var(--wine-dark); }
+
+.film-caption .film-role { 
+  margin: 8px 0; 
+  color: var(--red); 
+  font-size: 11px; 
+  font-weight: 700; 
+  text-transform: uppercase; }
+
+.film-caption p { 
+  font-size: 13px; 
+  line-height: 1.5; 
+  color: var(--muted); }
+
+.film-hint { 
+  display: block; 
+  margin-top: 8px; 
+  font-size: 14px; 
+  color: var(--wine); }
 
 /* 10. MODIFICADO — TICKETS DE CINEMA
    A seção recebe fundo creme para que os círculos do canhoto simulem recortes.
    Os planos mantêm seus valores e benefícios. O plano central continua vinho. */
 .tickets-section { background: #F5F1E9; }
-.ticket-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; align-items: stretch; }
-.ticket { display: flex; flex-direction: column; background: white; padding: 32px 28px 0; border: 1px solid var(--line); }
+
+.ticket-grid { display: grid; 
+  grid-template-columns: repeat(3, 1fr); 
+  gap: 24px; align-items: stretch; }
+  
+.ticket { display: flex; 
+  flex-direction: column; 
+  background: white; 
+  padding: 32px 28px 0; 
+  border: 1px solid var(--line); }
+
 .ticket.featured { background: var(--wine-dark); color: white; }
 .ticket-label { color: var(--red); font-size: .7rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
+
 /* Vermelho mais claro para que o rótulo tenha contraste no fundo vinho. */
 .featured .ticket-label { color: #ff8996; }
 .ticket h2 { margin: 10px 0 20px; font: 700 2rem/1.1 var(--serif); }
